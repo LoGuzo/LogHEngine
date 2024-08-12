@@ -14,9 +14,12 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Define.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHApplication.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHApplication.cpp" />
   </ItemGroup>
 </Project>
