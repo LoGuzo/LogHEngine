@@ -5,6 +5,10 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_Window", "Editor_Window\Editor_Window.vcxproj", "{4BC8271B-FDB8-4004-80C1-16D654567A9F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogHEngine_Window", "LogHEngine_Window\LogHEngine_Window.vcxproj", "{88A77075-A8F1-4B95-B528-97D8FFB936C4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogHEngine_Source", "LogHEngine_Source\LogHEngine_Source.vcxitems", "{54DC0DDD-56A7-480F-99A0-B329AD60E302}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,11 +25,24 @@ Global
 		{4BC8271B-FDB8-4004-80C1-16D654567A9F}.Release|x64.Build.0 = Release|x64
 		{4BC8271B-FDB8-4004-80C1-16D654567A9F}.Release|x86.ActiveCfg = Release|Win32
 		{4BC8271B-FDB8-4004-80C1-16D654567A9F}.Release|x86.Build.0 = Release|Win32
+		{88A77075-A8F1-4B95-B528-97D8FFB936C4}.Debug|x64.ActiveCfg = Debug|x64
+		{88A77075-A8F1-4B95-B528-97D8FFB936C4}.Debug|x64.Build.0 = Debug|x64
+		{88A77075-A8F1-4B95-B528-97D8FFB936C4}.Debug|x86.ActiveCfg = Debug|Win32
+		{88A77075-A8F1-4B95-B528-97D8FFB936C4}.Debug|x86.Build.0 = Debug|Win32
+		{88A77075-A8F1-4B95-B528-97D8FFB936C4}.Release|x64.ActiveCfg = Release|x64
+		{88A77075-A8F1-4B95-B528-97D8FFB936C4}.Release|x64.Build.0 = Release|x64
+		{88A77075-A8F1-4B95-B528-97D8FFB936C4}.Release|x86.ActiveCfg = Release|Win32
+		{88A77075-A8F1-4B95-B528-97D8FFB936C4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41668E32-C629-4C1E-8E24-6D4E3804EC1C}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		LogHEngine_Source\LogHEngine_Source.vcxitems*{4bc8271b-fdb8-4004-80c1-16d654567a9f}*SharedItemsImports = 4
+		LogHEngine_Source\LogHEngine_Source.vcxitems*{54dc0ddd-56a7-480f-99a0-b329ad60e302}*SharedItemsImports = 9
+		LogHEngine_Source\LogHEngine_Source.vcxitems*{88a77075-a8f1-4b95-b528-97d8ffb936c4}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
