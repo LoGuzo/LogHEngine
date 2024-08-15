@@ -26,6 +26,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHInputComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHPawn.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResources.h" />

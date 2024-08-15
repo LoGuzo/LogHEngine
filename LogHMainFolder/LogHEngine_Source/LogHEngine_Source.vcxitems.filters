@@ -109,6 +109,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHEnum.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

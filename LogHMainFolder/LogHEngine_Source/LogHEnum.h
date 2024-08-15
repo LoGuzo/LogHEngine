@@ -1,6 +1,6 @@
 #pragma once
 
-namespace LogH
+namespace LogH :: Enums
 {
 	enum class E_LayerType
 	{

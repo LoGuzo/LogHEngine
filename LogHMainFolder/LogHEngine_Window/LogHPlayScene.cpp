@@ -5,6 +5,7 @@
 #include "LogHPlayerCharacter.h"
 #include "LogHRenderComponent.h"
 #include "LogHTransformComponent.h"
+#include "LogHObject.h"
 
 namespace LogH
 {
@@ -18,11 +19,11 @@ namespace LogH
 
 	void PlayScene::Initialize()
 	{
-		MyPlayerCharacter = new PlayerCharacter();
+		MyPlayerCharacter = Object::Instantiate<PlayerCharacter>
+			(E_LayerType::BackGreound, Vector2(100.f, 100.f));
 
 		RenderComponent* rc = MyPlayerCharacter->GetComponent<RenderComponent>();
 		rc->ImageLoad(L"..\\Resources\\CloudOcean.png");
-		AddGameObject(MyPlayerCharacter, E_LayerType::BackGreound);
 	}
 
 	void PlayScene::Update()

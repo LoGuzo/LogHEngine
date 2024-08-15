@@ -10,6 +10,7 @@ namespace LogH
 		static Scene* CreateScene(const wstring& Name);
 
 		static Scene* LoadScene(const wstring& Name);
+		static Scene* GetActiveScene() { return MActiveScene; }
 
 		static void Initialize();
 		static void Update();
@@ -26,6 +27,7 @@ namespace LogH
 	{
 		T* MyScene = new T();
 		MyScene->SetName(Name);
+		MActiveScene = MyScene;
 		MyScene->Initialize();
 
 		MScene.insert(make_pair(Name, MyScene));

@@ -5,6 +5,8 @@
 
 namespace LogH
 {
+	using namespace Enums;
+
 	class Scene : public Entity
 	{
 	public:
@@ -20,6 +22,8 @@ namespace LogH
 		virtual void OnExit();
 
 		void AddGameObject(GameObject* _GameObject, const E_LayerType Type);
+
+		Layer* GetLayer(const E_LayerType Type) { return Layers[(UINT)Type]; }
 
 	private:
 		void CreateLayers();
