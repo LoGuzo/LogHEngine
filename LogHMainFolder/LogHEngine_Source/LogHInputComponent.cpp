@@ -20,7 +20,7 @@ namespace LogH
 
 	void InputComponent::Update()
 	{
-		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
+		/*TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
 
 		const int Speed = 100.f;
 		const float DeltaTime = Time::GetDeltaTime();
@@ -44,7 +44,7 @@ namespace LogH
 			My += Speed * DeltaTime;
 		}
 
-		MyTransform->SetPosition(Mx, My);
+		MyTransform->SetPosition(Mx, My);*/
 	}
 
 	void InputComponent::LateUpdate()

@@ -3,6 +3,7 @@
 
 namespace LogH
 {
+	using namespace Math;
 	class TransformComponent : public Component
 	{
 	public:
@@ -14,13 +15,11 @@ namespace LogH
 		virtual void LateUpdate() override;
 		virtual void Render(HDC Hdc) override;
 
-		void SetPosition(float x, float y) { Mx = x; My = y; }
+		void SetPosition(Vector2 Position) { MPosition.x = Position.x; MPosition.y = Position.y; }
 
-		float GetPositionX() { return Mx; }
-		float GetPositionY() { return My; }
+		Vector2 GetPosition() { return MPosition; }
 
 	private:
-		float Mx;
-		float My;
+		Vector2 MPosition;
 	};
 }

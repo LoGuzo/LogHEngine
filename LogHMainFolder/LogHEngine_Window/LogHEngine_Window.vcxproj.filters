@@ -4,6 +4,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{f4d23a59-88b4-4935-a1a2-0856eed63c7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{2b86433c-85f7-4825-a604-cf91382135b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LogHLoadScene.h">
@@ -18,6 +21,9 @@
     <ClInclude Include="LogHTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="LogHPlayerCharacter.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHPlayScene.cpp">
@@ -28,6 +34,9 @@
     </ClCompile>
     <ClCompile Include="LogHTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LogHPlayerCharacter.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

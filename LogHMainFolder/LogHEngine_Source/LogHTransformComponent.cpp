@@ -3,8 +3,7 @@
 namespace LogH
 {
 	TransformComponent::TransformComponent()
-		: Mx(0.f)
-		, My(0.f)
+		: MPosition()
 	{
 	}
 

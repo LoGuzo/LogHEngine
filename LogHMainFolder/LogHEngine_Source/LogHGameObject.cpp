@@ -7,8 +7,8 @@ namespace LogH
 {
 	GameObject::GameObject()
 	{
-		AddComponent<RenderComponent>();
-		AddComponent<TransformComponent>();
+		AddComponent<RenderComponent>(L"Render");
+		AddComponent<TransformComponent>(L"Transform");
 	}
 
 	GameObject::~GameObject()

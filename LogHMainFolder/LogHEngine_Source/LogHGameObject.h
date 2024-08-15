@@ -18,7 +18,7 @@ namespace LogH
 		virtual void Render(HDC Hdc);
 
 		template<typename T>
-		T* AddComponent();
+		T* AddComponent(wstring Name);
 		
 		template<typename T>
 		T* GetComponent();
@@ -29,10 +29,11 @@ namespace LogH
 
 
 	template<typename T>
-	T* GameObject::AddComponent()
+	T* GameObject::AddComponent(wstring Name)
 	{
 		T* Comp = new T();
 		Comp->SetOwner(this);
+		Comp->SetName(Name);
 
 		MComponents.push_back(Comp);
 

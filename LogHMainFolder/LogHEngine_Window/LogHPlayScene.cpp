@@ -1,5 +1,6 @@
 #include "LogHPlayScene.h"
-#include "LogHCharacter.h"
+#include "LogHPlayerCharacter.h"
+#include "LogHRenderComponent.h"
 
 namespace LogH
 {
@@ -13,8 +14,11 @@ namespace LogH
 
 	void PlayScene::Initialize()
 	{
-		Character* GameObj = new Character();
-		AddGameObject(GameObj);
+		PlayerCharacter* MyPlayerCharacter = new PlayerCharacter();
+
+		RenderComponent* rc = MyPlayerCharacter->GetComponent<RenderComponent>();
+		rc->ImageLoad(L"..\\Resources\\CloudOcean.png");
+		AddGameObject(MyPlayerCharacter);
 	}
 
 	void PlayScene::Update()

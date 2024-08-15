@@ -14,7 +14,11 @@ namespace LogH
 		virtual void LateUpdate();
 		virtual void Render(HDC Hdc);
 
-	private:
+		void ImageLoad(const wstring& path);
 
+	private:
+		Gdiplus::Image* MImg;
+		UINT MWidth;
+		UINT MHeight;
     };
 }

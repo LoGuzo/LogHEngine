@@ -5,6 +5,9 @@
 namespace LogH
 {
 	RenderComponent::RenderComponent()
+		: MImg(nullptr)
+		, MWidth(0)
+		, MHeight(0)
 	{
 	}
 
@@ -26,22 +29,20 @@ namespace LogH
 
 	void RenderComponent::Render(HDC Hdc)
 	{
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		TransformComponent * MyTransform = GetOwner()->GetComponent<TransformComponent>();
+		Vector2 pos = MyTransform->GetPosition();
 
-		HBRUSH oldBrush = (HBRUSH)SelectObject(Hdc, blueBrush);
+		Gdiplus::Graphics graphcis(Hdc);
+		graphcis.DrawImage(MImg, Gdiplus::Rect(pos.x, pos.y, MWidth, MHeight));
+	}
 
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-		HPEN oldPen = (HPEN)SelectObject(Hdc, redPen);
-		SelectObject(Hdc, oldPen);
-
-		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
-		Rectangle(Hdc, 100 + MyTransform->GetPositionX(), 
-			100 + MyTransform->GetPositionY(), 
-			200 + MyTransform->GetPositionX(), 
-			200 + MyTransform->GetPositionY());
-
-		SelectObject(Hdc, oldBrush);
-		DeleteObject(blueBrush);
-		DeleteObject(redPen);
+	void RenderComponent::ImageLoad(const wstring& path)
+	{
+		MImg = Gdiplus::Image::FromFile(path.c_str());
+		if (MImg)
+		{
+			MWidth = MImg->GetWidth();
+			MHeight = MImg->GetHeight();
+		}
 	}
 }
