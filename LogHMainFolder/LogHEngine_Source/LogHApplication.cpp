@@ -1,4 +1,5 @@
 #include "LogHApplication.h"
+#include "LogHInput.h"
 
 namespace LogH
 {
@@ -18,7 +19,10 @@ namespace LogH
 	{
 		MHwnd = Hwnd;
 		MHdc = GetDC(Hwnd);
+
 		MPlayer.SetPosition(0.f, 0.f);
+
+		Input::Initailize();
 	}
 
 	void Application::Run()
@@ -30,6 +34,8 @@ namespace LogH
 
 	void Application::Update()
 	{
+		Input::Update();
+
 		MPlayer.Update();
 	}
 
