@@ -5,6 +5,7 @@
 #include "main.h"
 
 #include "..\\LogHEngine_Source\\LogHApplication.h"
+#include "..\\LogHEngine_Window\\LogHLoadScene.h"
 
 LogH::Application App;
 
@@ -125,6 +126,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //load scenes
+   LogH::LoadScenes();
 
    return TRUE;
 }

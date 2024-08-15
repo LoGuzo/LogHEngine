@@ -147,6 +147,11 @@
     <Image Include="Editor_Window.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogHEngine_Window\LogHEngine_Window.vcxproj">
+      <Project>{88a77075-a8f1-4b95-b528-97d8ffb936c4}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

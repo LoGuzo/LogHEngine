@@ -18,16 +18,23 @@ namespace LogH
 		void Render();
 
 	private:
+		void ClearRenderTarget();
+		void CopyRenderTarget(HDC Src, HDC Dest);
+		void AdjustWindeowRect(HWND Hwnd, UINT Width, UINT Height);
+		void CreateBuffer(UINT Width, UINT Height);
+		void InitializeEtc();
+
+	private:
 		HWND MHwnd;
 		HDC MHdc;
 
 		HDC MBackHdc;
-		HBITMAP MBackBuffer;
+		HBITMAP MBackBitMap;
 
 		UINT MWidth;
 		UINT MHeight;
 
-		GameObject MPlayer;
+		//vector<Scene*> MScenes;
 	};
 }
 

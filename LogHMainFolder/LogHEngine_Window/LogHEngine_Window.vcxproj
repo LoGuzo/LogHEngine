@@ -128,6 +128,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LogHEndScene.h" />
+    <ClInclude Include="LogHLoadScene.h" />
+    <ClInclude Include="LogHPlayScene.h" />
+    <ClInclude Include="LogHTitleScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LogHEndScene.cpp" />
+    <ClCompile Include="LogHPlayScene.cpp" />
+    <ClCompile Include="LogHTitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

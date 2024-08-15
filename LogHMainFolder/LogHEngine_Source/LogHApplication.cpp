@@ -1,6 +1,7 @@
 #include "LogHApplication.h"
 #include "LogHInput.h"
 #include "LogHTime.h"
+#include "LogHSceneManager.h"
 
 namespace LogH
 {
@@ -22,29 +23,9 @@ namespace LogH
 
 	void Application::Initialize(HWND Hwnd, UINT Width, UINT Height)
 	{
-		MHwnd = Hwnd;
-		MHdc = GetDC(Hwnd);
-
-		RECT rect = { 0,0,Width,Height };
-		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
-
-		MWidth = rect.right - rect.left;
-		MHeight = rect.bottom - rect.top;
-
-		SetWindowPos(MHwnd, nullptr, 0, 0, MWidth, MHeight, 0);
-		ShowWindow(MHwnd, true);
-
-		MBackBitMap = CreateCompatibleBitmap(MHdc, Width, Height);
-
-		MBackHdc = CreateCompatibleDC(MHdc);
-
-		HBITMAP oldBitMap = (HBITMAP)SelectObject(MBackHdc, MBackBitMap);
-		DeleteObject(oldBitMap);
-
-		MPlayer.SetPosition(0.f, 0.f);
-
-		Input::Initailize();
-		Time::Initailize();
+		AdjustWindeowRect(Hwnd, Width, Height);
+		CreateBuffer(Width, Height);
+		InitializeEtc();
 	}
 
 	void Application::Run()
@@ -58,22 +39,63 @@ namespace LogH
 	{
 		Input::Update();
 		Time::Update();
-
-		MPlayer.Update();
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
-		MPlayer.LateUpdate();
 	}
 
 	void Application::Render()
 	{
-		Rectangle(MBackHdc, 0, 0, 1600, 900);
+		ClearRenderTarget();
 
 		Time::Render(MBackHdc);
-		MPlayer.Render(MBackHdc);
+		SceneManager::Render(MBackHdc);
 
-		BitBlt(MHdc, 0, 0, MWidth, MHeight, MBackHdc, 0, 0, SRCCOPY);
+		CopyRenderTarget(MBackHdc, MHdc);
+	}
+
+	void Application::ClearRenderTarget()
+	{
+		Rectangle(MBackHdc, -1, -1, 1601, 901);
+	}
+
+	void Application::CopyRenderTarget(HDC Src, HDC Dest)
+	{
+		BitBlt(Dest, 0, 0, MWidth, MHeight, Src, 0, 0, SRCCOPY);
+	}
+
+	void Application::AdjustWindeowRect(HWND Hwnd, UINT Width, UINT Height)
+	{
+		MHwnd = Hwnd;
+		MHdc = GetDC(Hwnd);
+
+		RECT rect = { 0, 0, Width, Height };
+		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+		MWidth = rect.right - rect.left;
+		MHeight = rect.bottom - rect.top;
+
+		SetWindowPos(Hwnd, nullptr, 0, 0, MWidth, MHeight, 0);
+		ShowWindow(Hwnd, true);
+	}
+
+	void Application::CreateBuffer(UINT Width, UINT Height)
+	{
+		MBackBitMap = CreateCompatibleBitmap(MHdc, Width, Height);
+
+		MBackHdc = CreateCompatibleDC(MHdc);
+
+		HBITMAP oldBitMap = (HBITMAP)SelectObject(MBackHdc, MBackBitMap);
+		DeleteObject(oldBitMap);
+
+	}
+
+	void Application::InitializeEtc()
+	{
+		Input::Initailize();
+		Time::Initailize();
+		SceneManager::Initialize();
 	}
 }

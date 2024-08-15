@@ -1,5 +1,4 @@
 #include "LogHInput.h"
-#include <algorithm>
 
 namespace LogH
 {
@@ -75,6 +74,4 @@ namespace LogH
 			_Key.State = E_KeyState::None;
 		_Key.bPressed = false;
 	}
-
-
 }
