@@ -1,5 +1,6 @@
 #include "LogHGameObject.h"
 #include "LogHInput.h"
+#include "LogHTime.h"
 
 namespace LogH
 {
@@ -14,21 +15,23 @@ namespace LogH
 	}
 	void GameObject::Update()
 	{
-		if (Input::GetKeyPressed(E_KeyCode::A))
+		const int Speed = 100.f;
+		const float DeltaTime = Time::GetDeltaTime();
+		if (Input::GetKeyPressed(E_KeyCode::Left))
 		{
-			Mx -= 0.01f;
+			Mx -= Speed * DeltaTime;
 		}
-		if (Input::GetKeyPressed(E_KeyCode::D))
+		if (Input::GetKeyPressed(E_KeyCode::Right))
 		{
-			Mx += 0.01f;
+			Mx += Speed * DeltaTime;
 		}
-		if (Input::GetKeyPressed(E_KeyCode::W))
+		if (Input::GetKeyPressed(E_KeyCode::Up))
 		{
-			My -= 0.01f;
+			My -= Speed * DeltaTime;
 		}
-		if (Input::GetKeyPressed(E_KeyCode::S))
+		if (Input::GetKeyPressed(E_KeyCode::Down))
 		{
-			My += 0.01f;
+			My += Speed * DeltaTime;
 		}
 	}
 	void GameObject::LateUpdate()

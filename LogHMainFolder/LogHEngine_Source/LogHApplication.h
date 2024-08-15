@@ -10,7 +10,7 @@ namespace LogH
 		Application();
 		~Application();
 
-		void Initialize(HWND Hwnd);
+		void Initialize(HWND Hwnd, UINT Width, UINT MHeight);
 		void Run();
 
 		void Update();
@@ -20,6 +20,12 @@ namespace LogH
 	private:
 		HWND MHwnd;
 		HDC MHdc;
+
+		HDC MBackHdc;
+		HBITMAP MBackBuffer;
+
+		UINT MWidth;
+		UINT MHeight;
 
 		GameObject MPlayer;
 	};
