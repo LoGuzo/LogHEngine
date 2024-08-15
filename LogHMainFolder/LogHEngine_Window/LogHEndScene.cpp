@@ -12,8 +12,6 @@ namespace LogH
 
 	void EndScene::Initialize()
 	{
-		GameObject* GameObj = new GameObject();
-		AddGameObject(GameObj);
 	}
 
 	void EndScene::Update()
@@ -29,5 +27,11 @@ namespace LogH
 	void EndScene::Render(HDC MHdc)
 	{
 		Scene::Render(MHdc);
+	}
+	void EndScene::OnEnter()
+	{
+	}
+	void EndScene::OnExit()
+	{
 	}
 }

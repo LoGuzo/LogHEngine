@@ -7,6 +7,7 @@
 #include <map>
 
 #include "LogHMath.h"
+#include "LogHEnum.h"
 
 #include <mmsystem.h>
 #include <dinput.h>
@@ -17,5 +18,6 @@
 #pragma comment(lib, "gdiplus.lib")
 
 using namespace std;
+
 
 #define SAFE_DELETE(p) { if(p) { delete (p); (p) = NULL; } }

@@ -19,10 +19,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHEnum.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHInputComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHPawn.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResource.h" />
@@ -42,6 +44,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHInputComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHPawn.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResource.cpp" />

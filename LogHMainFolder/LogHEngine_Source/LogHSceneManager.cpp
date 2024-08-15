@@ -6,12 +6,16 @@ namespace LogH
 
 	Scene* SceneManager::LoadScene(const wstring& Name)
 	{
+		if(MActiveScene)
+			MActiveScene->OnExit();
 		map<wstring, Scene*>::iterator iter = MScene.find(Name);
 
 		if (iter == MScene.end())
 			return nullptr;
 
 		MActiveScene = iter->second;
+		if (MActiveScene)
+			MActiveScene->OnEnter();
 
 		return iter->second;
 	};

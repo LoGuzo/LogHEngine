@@ -34,9 +34,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHSceneManager.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)LogHApplication.cpp">
-      <Filter>Helpers</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHInput.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
@@ -48,6 +45,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHApplication.cpp">
+      <Filter>High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Define.h">
@@ -86,9 +89,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHSceneManager.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)LogHApplication.h">
-      <Filter>Helpers</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHInput.h">
       <Filter>Helpers</Filter>
     </ClInclude>
@@ -100,6 +100,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHApplication.h">
+      <Filter>High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHEnum.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -116,6 +125,12 @@
     </Filter>
     <Filter Include="Helpers">
       <UniqueIdentifier>{3177e598-2995-49e3-8b12-bd5a9571afe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="High Level Interface">
+      <UniqueIdentifier>{d4981faf-0390-44a7-833d-64f8e8a5bf1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{bcf18963-20e8-438f-aef3-098be06af1a3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

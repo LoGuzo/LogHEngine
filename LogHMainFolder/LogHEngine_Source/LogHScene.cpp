@@ -3,43 +3,80 @@
 namespace LogH
 {
 	Scene::Scene()
-		:MGameObjects{}
+		:Layers{}
 	{
+		CreateLayers();
 	}
 
 	Scene::~Scene()
 	{
+		for (Layer* layer : Layers)
+			SAFE_DELETE(layer);
 	}
 
 	void Scene::Initialize()
 	{
+		for (Layer* layer : Layers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Initialize();
+		}
 	}
 
 	void Scene::Update()
 	{
-		for (GameObject* GameObj : MGameObjects)
+		for (Layer* layer : Layers)
 		{
-			GameObj->Update();
+			if (layer == nullptr)
+				continue;
+
+			layer->Update();
 		}
 	}
 
 	void Scene::LateUpdate()
 	{
-		for (GameObject* GameObj : MGameObjects)
+		for (Layer* layer : Layers)
 		{
-			GameObj->LateUpdate();
+			if (layer == nullptr)
+				continue;
+
+			layer->LateUpdate();
 		}
 	}
 
 	void Scene::Render(HDC MHdc)
 	{
-		for (GameObject* GameObj : MGameObjects)
+		for (Layer* layer : Layers)
 		{
-			GameObj->Render(MHdc);
+			if (layer == nullptr)
+				continue;
+
+			layer->Render(MHdc);
 		}
 	}
-	void Scene::AddGameObject(GameObject* gameObject)
+
+	void Scene::OnEnter()
 	{
-		MGameObjects.push_back(gameObject);
 	}
+	void Scene::OnExit()
+	{
+	}
+
+	void Scene::AddGameObject(GameObject* _GameObject, const E_LayerType Type)
+	{
+		Layers[(UINT)Type]->AddGameObject(_GameObject);
+	}
+
+	void Scene::CreateLayers()
+	{
+		Layers.resize((UINT)E_LayerType::Max);
+		for (size_t i = 0; i < (UINT)E_LayerType::Max; i++)
+		{
+			Layers[i] = new Layer();
+		}
+	}
+
 }

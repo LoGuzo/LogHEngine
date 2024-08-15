@@ -1,4 +1,7 @@
 #include "LogHTitleScene.h"
+//#include "LogHPlayScene.h"
+#include "LogHInput.h"
+#include "LogHSceneManager.h"
 
 namespace LogH
 {
@@ -12,8 +15,7 @@ namespace LogH
 
 	void TitleScene::Initialize()
 	{
-		GameObject* GameObj = new GameObject();
-		AddGameObject(GameObj);
+		Scene::Initialize();
 	}
 
 	void TitleScene::Update()
@@ -24,10 +26,24 @@ namespace LogH
 	void TitleScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(E_KeyCode::N))
+		{
+			SceneManager::LoadScene(L"PlayScene");
+		}
 	}
 
 	void TitleScene::Render(HDC MHdc)
 	{
 		Scene::Render(MHdc);
+
+		wchar_t str[50] = L"TitleScene";
+		TextOut(MHdc, 0, 0, str, 10);
+	}
+	void TitleScene::OnEnter()
+	{
+	}
+	void TitleScene::OnExit()
+	{
 	}
 }

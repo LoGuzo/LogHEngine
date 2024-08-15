@@ -33,6 +33,7 @@ namespace LogH
 	{
 		T* Comp = new T();
 		Comp->SetOwner(this);
+		Comp->Initialize();
 		Comp->SetName(Name);
 
 		MComponents.push_back(Comp);

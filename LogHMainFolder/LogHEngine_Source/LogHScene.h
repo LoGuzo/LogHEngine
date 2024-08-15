@@ -1,6 +1,7 @@
 #pragma once
 #include "LogHEntity.h"
 #include "LogHGameObject.h"
+#include "LogHLayer.h"
 
 namespace LogH
 {
@@ -15,8 +16,15 @@ namespace LogH
 		virtual void LateUpdate();
 		virtual void Render(HDC MHdc);
 
-		void AddGameObject(GameObject* gameObject);
+		virtual void OnEnter();
+		virtual void OnExit();
+
+		void AddGameObject(GameObject* _GameObject, const E_LayerType Type);
+
 	private:
-		vector<GameObject*> MGameObjects;
+		void CreateLayers();
+
+	private:
+		vector<Layer*> Layers;
 	};
 }

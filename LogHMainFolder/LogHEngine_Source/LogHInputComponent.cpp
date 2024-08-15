@@ -20,12 +20,12 @@ namespace LogH
 
 	void InputComponent::Update()
 	{
-		/*TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
+		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
 
 		const int Speed = 100.f;
 		const float DeltaTime = Time::GetDeltaTime();
 
-		int Mx = MyTransform->GetPositionX(), My = MyTransform->GetPositionY();
+		int Mx = MyTransform->GetPosition().x, My = MyTransform->GetPosition().y;
 
 		if (Input::GetKeyPressed(E_KeyCode::Left))
 		{
@@ -44,7 +44,7 @@ namespace LogH
 			My += Speed * DeltaTime;
 		}
 
-		MyTransform->SetPosition(Mx, My);*/
+		MyTransform->SetPosition(Vector2(Mx, My));
 	}
 
 	void InputComponent::LateUpdate()

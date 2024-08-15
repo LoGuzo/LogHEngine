@@ -10,10 +10,13 @@ namespace LogH
 		TitleScene();
 		~TitleScene();
 
-		void Initialize() override;
-		void Update() override;
-		void LateUpdate() override;
-		void Render(HDC MHdc) override;
+		virtual void Initialize() override;
+		virtual void Update() override;
+		virtual void LateUpdate() override;
+		virtual void Render(HDC MHdc) override;
+
+		virtual void OnEnter() override;
+		virtual void OnExit() override;
 
 	private:
 
