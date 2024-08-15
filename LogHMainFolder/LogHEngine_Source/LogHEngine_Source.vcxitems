@@ -15,23 +15,35 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Define.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHActor.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHInputComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHPawn.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHTransformComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHRenderComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHInputComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHPawn.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHTransformComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHRenderComponent.cpp" />
   </ItemGroup>
 </Project>

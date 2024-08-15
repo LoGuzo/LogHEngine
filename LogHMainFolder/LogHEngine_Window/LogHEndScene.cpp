@@ -13,7 +13,6 @@ namespace LogH
 	void EndScene::Initialize()
 	{
 		GameObject* GameObj = new GameObject();
-		GameObj->SetPosition(100, 100);
 		AddGameObject(GameObj);
 	}
 

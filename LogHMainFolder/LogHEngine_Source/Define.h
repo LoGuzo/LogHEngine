@@ -7,3 +7,5 @@
 #include <map>
 
 using namespace std;
+
+#define SAFE_DELETE(p) { if(p) { delete (p); (p) = NULL; } }

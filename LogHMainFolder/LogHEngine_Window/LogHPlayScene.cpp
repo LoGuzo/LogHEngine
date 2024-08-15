@@ -1,4 +1,5 @@
 #include "LogHPlayScene.h"
+#include "LogHCharacter.h"
 
 namespace LogH
 {
@@ -12,7 +13,7 @@ namespace LogH
 
 	void PlayScene::Initialize()
 	{
-		GameObject* GameObj = new GameObject();
+		Character* GameObj = new Character();
 		AddGameObject(GameObj);
 	}
 

@@ -13,7 +13,6 @@ namespace LogH
 	void TitleScene::Initialize()
 	{
 		GameObject* GameObj = new GameObject();
-		GameObj->SetPosition(200, 200);
 		AddGameObject(GameObj);
 	}
 

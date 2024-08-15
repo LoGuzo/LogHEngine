@@ -1,56 +1,51 @@
 #include "LogHGameObject.h"
-#include "LogHInput.h"
-#include "LogHTime.h"
+#include "LogHTransformComponent.h"
+
+#include "LogHRenderComponent.h"
 
 namespace LogH
 {
 	GameObject::GameObject()
 	{
-
+		AddComponent<RenderComponent>();
+		AddComponent<TransformComponent>();
 	}
 
 	GameObject::~GameObject()
 	{
-
+		for (Component* Comp : MComponents)
+			SAFE_DELETE(Comp);
 	}
+
+	void GameObject::Initialize()
+	{
+		for (Component* Comp : MComponents)
+		{
+			Comp->Initialize();
+		}
+	}
+
 	void GameObject::Update()
 	{
-		const int Speed = 100.f;
-		const float DeltaTime = Time::GetDeltaTime();
-		if (Input::GetKeyPressed(E_KeyCode::Left))
+		for (Component* Comp : MComponents)
 		{
-			Mx -= Speed * DeltaTime;
-		}
-		if (Input::GetKeyPressed(E_KeyCode::Right))
-		{
-			Mx += Speed * DeltaTime;
-		}
-		if (Input::GetKeyPressed(E_KeyCode::Up))
-		{
-			My -= Speed * DeltaTime;
-		}
-		if (Input::GetKeyPressed(E_KeyCode::Down))
-		{
-			My += Speed * DeltaTime;
+			Comp->Update();
 		}
 	}
+
 	void GameObject::LateUpdate()
 	{
+		for (Component* Comp : MComponents)
+		{
+			Comp->LateUpdate();
+		}
 	}
+
 	void GameObject::Render(HDC Hdc)
 	{
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
-
-		HBRUSH oldBrush = (HBRUSH)SelectObject(Hdc, blueBrush);
-
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-		HPEN oldPen = (HPEN)SelectObject(Hdc, redPen);
-		SelectObject(Hdc, oldPen);
-
-		Rectangle(Hdc, 100 + Mx, 100 + My, 200 + Mx, 200 + My);
-
-		SelectObject(Hdc, oldBrush);
-		DeleteObject(blueBrush);
-		DeleteObject(redPen);
+		for (Component* Comp : MComponents)
+		{
+			Comp->Render(Hdc);
+		}
 	}
 }
