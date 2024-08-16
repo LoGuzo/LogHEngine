@@ -27,7 +27,7 @@ namespace LogH
 
 	void Time::Render(HDC Hdc)
 	{
-		static float time = 0.f;
+		/*static float time = 0.f;
 
 		time += DeltaTime;
 		float fps = 1.f / DeltaTime;
@@ -41,6 +41,6 @@ namespace LogH
 		int fpslen = wcsnlen_s(fpsstr, 50);
 
 		TextOut(Hdc, 0, 0, str, len);
-		TextOut(Hdc, 0, 20, fpsstr, fpslen);
+		TextOut(Hdc, 0, 20, fpsstr, fpslen);*/
 	}
 }

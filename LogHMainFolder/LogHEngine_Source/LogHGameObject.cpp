@@ -7,7 +7,8 @@ namespace LogH
 {
 	GameObject::GameObject()
 	{
-		AddComponent<RenderComponent>(L"Render");
+		MComponents.resize((UINT)Enums::E_ComponentType::End);
+		//AddComponent<RenderComponent>(L"Render");
 		AddComponent<TransformComponent>(L"Transform");
 	}
 
@@ -21,6 +22,9 @@ namespace LogH
 	{
 		for (Component* Comp : MComponents)
 		{
+			if (!Comp)
+				continue;
+
 			Comp->Initialize();
 		}
 	}
@@ -29,6 +33,9 @@ namespace LogH
 	{
 		for (Component* Comp : MComponents)
 		{
+			if (!Comp)
+				continue;
+
 			Comp->Update();
 		}
 	}
@@ -37,6 +44,9 @@ namespace LogH
 	{
 		for (Component* Comp : MComponents)
 		{
+			if (!Comp)
+				continue;
+
 			Comp->LateUpdate();
 		}
 	}
@@ -45,6 +55,9 @@ namespace LogH
 	{
 		for (Component* Comp : MComponents)
 		{
+			if (!Comp)
+				continue;
+
 			Comp->Render(Hdc);
 		}
 	}

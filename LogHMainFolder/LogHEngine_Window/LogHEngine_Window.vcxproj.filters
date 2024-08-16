@@ -7,6 +7,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{2b86433c-85f7-4825-a604-cf91382135b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{c6e39708-4bb5-4b36-b430-be461293f79d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LogHLoadScene.h">
@@ -25,7 +28,7 @@
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="LogHLoadResources.h">
-      <Filter>Scenes</Filter>
+      <Filter>Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

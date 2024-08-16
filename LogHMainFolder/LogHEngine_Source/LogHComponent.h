@@ -9,7 +9,7 @@ namespace LogH
 	class Component : public Entity
 	{
 	public:
-		Component();
+		Component(Enums::E_ComponentType _Type);
 		virtual ~Component();
 
 		virtual void Initialize();
@@ -19,8 +19,11 @@ namespace LogH
 
 		void SetOwner(GameObject* _Owner);
 		GameObject* GetOwner() { return Owner; }
+		Enums::E_ComponentType GetType() { return Type; }
 
 	private:
+		Enums::E_ComponentType Type;
+
 		GameObject* Owner;
 	};
 }

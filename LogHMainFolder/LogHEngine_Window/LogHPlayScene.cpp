@@ -1,14 +1,16 @@
 #include "LogHPlayScene.h"
 //#include "LogHTitleScene.h"
+#include "LogHCameraComponent.h"
 #include "LogHInput.h"
 #include "LogHSceneManager.h"
 #include "LogHObject.h"
+#include "LogHGameObject.h"
 #include "LogHPlayerCharacter.h"
 #include "LogHRenderComponent.h"
 #include "LogHResourceManager.h"
 #include "LogHTransformComponent.h"
 #include "LogHTexture.h"
-
+#include "LogHRenderer.h"
 
 namespace LogH
 {
@@ -18,17 +20,32 @@ namespace LogH
 
 	PlayScene::~PlayScene()
 	{
+		SAFE_DELETE(MyPlayerCharacter);
+		SAFE_DELETE(BackGroundObj);
 	}
 
 	void PlayScene::Initialize()
 	{
+		GameObject* CameraObj = Object::Instantiate<GameObject>
+			(E_LayerType::None, Vector2(428.f, 440.f));
+
+		/*CameraComponent* CameraComp = CameraObj->AddComponent<CameraComponent>(L"Camera");
+		Renderer::MainCamera = CameraComp;*/
+
 		MyPlayerCharacter = Object::Instantiate<PlayerCharacter>
-			(E_LayerType::BackGreound, Vector2(100.f, 100.f));
+			(E_LayerType::Character, Vector2(0.f, 0.f));
+
+		RenderComponent* Rc = MyPlayerCharacter->AddComponent<RenderComponent>(L"Render");
+		Graphics::Texture* Char = ResourceManager::Find<Graphics::Texture>(L"Character");
+		Rc->SetTexture(Char);
+
+		BackGroundObj = Object::Instantiate<GameObject>
+			(E_LayerType::BackGreound, Vector2(0.f, 0.f));
 		
-		RenderComponent* rc = MyPlayerCharacter->GetComponent<RenderComponent>();
+		RenderComponent* BackRc = BackGroundObj->AddComponent<RenderComponent>(L"Render");
 
 		Graphics::Texture* bg = ResourceManager::Find<Graphics::Texture>(L"BackGround");
-		rc->SetTexture(bg);
+		BackRc->SetTexture(bg);
 
 		Scene::Initialize();
 	}
@@ -51,9 +68,6 @@ namespace LogH
 	void PlayScene::Render(HDC MHdc)
 	{
 		Scene::Render(MHdc);
-
-		wchar_t str[50] = L"PlayScene";
-		TextOut(MHdc, 0, 0, str, 9);
 	}
 	void PlayScene::OnEnter()
 	{
@@ -61,7 +75,7 @@ namespace LogH
 	}
 	void PlayScene::OnExit()
 	{
-		TransformComponent* tr = MyPlayerCharacter->GetComponent<TransformComponent>();
-		tr->SetPosition(Vector2(0, 0));
+		TransformComponent* BackTr = BackGroundObj->GetComponent<TransformComponent>();
+		BackTr->SetPosition(Vector2(0, 0));
 	}
 }

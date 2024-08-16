@@ -12,6 +12,7 @@ namespace LogH::Graphics
 
 	Texture::~Texture()
 	{
+		SAFE_DELETE(MImg);
 	}
 
 	HRESULT Texture::Load(const wstring& _Path)

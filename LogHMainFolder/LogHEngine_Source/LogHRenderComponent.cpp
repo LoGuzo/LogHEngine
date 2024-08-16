@@ -2,11 +2,12 @@
 #include "LogHTransformComponent.h"
 #include "LogHGameObject.h"
 #include "LogHTexture.h"
+#include "LogHRenderer.h"
 
 namespace LogH
 {
 	RenderComponent::RenderComponent()
-		: Component()
+		: Component(Enums::E_ComponentType::Renderer)
 		, MTexture(nullptr)
 		, TScale(Vector2::One)
 	{
@@ -33,8 +34,12 @@ namespace LogH
 	{
 		if (!MTexture)
 			assert(false);
+
 		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
 		Vector2 pos = MyTransform->GetPosition();
+
+		if(Renderer::MainCamera)
+			pos = Renderer::MainCamera->CaluatePosition(pos);
 
 		if (MTexture->GetTextureType() == Graphics::Texture::E_TextureType::Bmp)
 		{

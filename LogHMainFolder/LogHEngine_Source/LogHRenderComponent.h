@@ -8,12 +8,12 @@ namespace LogH
     {
 	public:
 		RenderComponent();
-		virtual ~RenderComponent();
+		~RenderComponent();
 
-		virtual void Initialize();
-		virtual void Update();
-		virtual void LateUpdate();
-		virtual void Render(HDC Hdc);
+		virtual void Initialize() override;
+		virtual void Update() override;
+		virtual void LateUpdate() override;
+		virtual void Render(HDC Hdc) override;
 
 		void SetTexture(Graphics::Texture* _Texture) { MTexture = _Texture; }
 		void SetSize(Math::Vector2 _TScale) { TScale = _TScale; }

@@ -1,7 +1,13 @@
 #include "LogHTitleScene.h"
 //#include "LogHPlayScene.h"
 #include "LogHInput.h"
+#include "LogHObject.h"
 #include "LogHSceneManager.h"
+#include "LogHRenderComponent.h"
+#include "LogHResourceManager.h"
+#include "LogHTransformComponent.h"
+#include "LogHTexture.h"
+#include "LogHRenderer.h"
 
 namespace LogH
 {
@@ -15,6 +21,14 @@ namespace LogH
 
 	void TitleScene::Initialize()
 	{
+		GameObject* BackGroundObj = Object::Instantiate<GameObject>
+			(E_LayerType::BackGreound, Vector2(0.f, 0.f));
+
+		RenderComponent* BackRc = BackGroundObj->AddComponent<RenderComponent>(L"Render");
+
+		Graphics::Texture* bg = ResourceManager::Find<Graphics::Texture>(L"Title");
+		BackRc->SetTexture(bg);
+
 		Scene::Initialize();
 	}
 
@@ -36,9 +50,6 @@ namespace LogH
 	void TitleScene::Render(HDC MHdc)
 	{
 		Scene::Render(MHdc);
-
-		wchar_t str[50] = L"TitleScene";
-		TextOut(MHdc, 0, 0, str, 10);
 	}
 	void TitleScene::OnEnter()
 	{

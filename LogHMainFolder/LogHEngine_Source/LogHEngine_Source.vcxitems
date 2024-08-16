@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Define.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHActor.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHCameraComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHCharacter.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHEntity.h" />
@@ -28,6 +29,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHPawn.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResourceManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHScene.h" />
@@ -39,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHCameraComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHCharacter.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHEntity.cpp" />
@@ -49,6 +52,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHPawn.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResourceManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHScene.cpp" />

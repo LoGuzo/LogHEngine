@@ -3,15 +3,16 @@
 
 namespace LogH
 {
-    Component::Component()
+    Component::Component(Enums::E_ComponentType _Type)
         : Owner(nullptr)
+        , Type(_Type)
     {
 
     }
 
     Component::~Component()
     {
-
+        SAFE_DELETE(Owner);
     }
 
     void Component::Initialize()

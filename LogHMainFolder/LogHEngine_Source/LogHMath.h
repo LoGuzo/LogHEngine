@@ -24,5 +24,25 @@ namespace LogH::Math
 		{
 
 		}
+
+		Vector2 operator - (Vector2 Other)
+		{
+			return Vector2(x - Other.x, y - Other.y);
+		}
+
+		Vector2 operator + (Vector2 Other)
+		{
+			return Vector2(x + Other.x, y + Other.y);
+		}
+
+		Vector2 operator * (float value)
+		{
+			return Vector2(x * value, y * value);
+		}
+
+		Vector2 operator / (float value)
+		{
+			return Vector2(x / value, y / value);
+		}
 	};
 }

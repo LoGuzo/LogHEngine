@@ -36,7 +36,7 @@ namespace LogH
 		Comp->Initialize();
 		Comp->SetName(Name);
 
-		MComponents.push_back(Comp);
+		MComponents[(UINT)Comp->GetType()] = Comp;
 
 		return Comp;
 	}

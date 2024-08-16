@@ -3,7 +3,8 @@
 namespace LogH
 {
 	TransformComponent::TransformComponent()
-		: MPosition()
+		: Component(Enums::E_ComponentType::Transform)
+		, MPosition()
 	{
 	}
 

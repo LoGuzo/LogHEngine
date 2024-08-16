@@ -8,7 +8,7 @@ namespace LogH
 	{
 	public:
 		TransformComponent();
-		virtual ~TransformComponent();
+		~TransformComponent();
 
 		virtual void Initialize() override;
 		virtual void Update() override;

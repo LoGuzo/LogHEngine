@@ -18,6 +18,7 @@ namespace LogH
 		virtual void OnExit() override;
 
 	private:
+		class GameObject* BackGroundObj;
 		class PlayerCharacter* MyPlayerCharacter;
 	};
 }
