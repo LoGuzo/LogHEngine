@@ -11,4 +11,12 @@ namespace LogH :: Enums
 		Player,
 		Max = 16,
 	};
+
+	enum class E_ResourceType
+	{
+		Texture,
+		AudioClip,
+		Prefab,
+		End,
+	};
 }

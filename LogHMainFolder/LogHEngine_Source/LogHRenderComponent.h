@@ -1,5 +1,6 @@
 #pragma once
 #include "LogHComponent.h"
+#include "LogHTexture.h"
 
 namespace LogH
 {
@@ -14,11 +15,11 @@ namespace LogH
 		virtual void LateUpdate();
 		virtual void Render(HDC Hdc);
 
-		void ImageLoad(const wstring& path);
+		void SetTexture(Graphics::Texture* _Texture) { MTexture = _Texture; }
+		void SetSize(Math::Vector2 _TScale) { TScale = _TScale; }
 
 	private:
-		Gdiplus::Image* MImg;
-		UINT MWidth;
-		UINT MHeight;
+		Graphics::Texture* MTexture;
+		Math::Vector2 TScale;
     };
 }

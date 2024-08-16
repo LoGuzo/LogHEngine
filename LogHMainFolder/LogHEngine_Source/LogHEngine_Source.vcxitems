@@ -29,9 +29,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHPawn.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)LogHResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHResourceManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTransformComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHRenderComponent.h" />
@@ -49,9 +50,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHPawn.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)LogHResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHResourceManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTransformComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHRenderComponent.cpp" />

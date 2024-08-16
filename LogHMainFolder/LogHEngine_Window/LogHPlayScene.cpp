@@ -2,10 +2,13 @@
 //#include "LogHTitleScene.h"
 #include "LogHInput.h"
 #include "LogHSceneManager.h"
+#include "LogHObject.h"
 #include "LogHPlayerCharacter.h"
 #include "LogHRenderComponent.h"
+#include "LogHResourceManager.h"
 #include "LogHTransformComponent.h"
-#include "LogHObject.h"
+#include "LogHTexture.h"
+
 
 namespace LogH
 {
@@ -21,9 +24,13 @@ namespace LogH
 	{
 		MyPlayerCharacter = Object::Instantiate<PlayerCharacter>
 			(E_LayerType::BackGreound, Vector2(100.f, 100.f));
-
+		
 		RenderComponent* rc = MyPlayerCharacter->GetComponent<RenderComponent>();
-		rc->ImageLoad(L"..\\Resources\\CloudOcean.png");
+
+		Graphics::Texture* bg = ResourceManager::Find<Graphics::Texture>(L"BackGround");
+		rc->SetTexture(bg);
+
+		Scene::Initialize();
 	}
 
 	void PlayScene::Update()

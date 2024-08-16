@@ -17,6 +17,8 @@ namespace LogH
 		void LateUpdate();
 		void Render();
 
+		HDC GetHdc() { return MHdc; }
+
 	private:
 		void ClearRenderTarget();
 		void CopyRenderTarget(HDC Src, HDC Dest);
@@ -33,8 +35,6 @@ namespace LogH
 
 		UINT MWidth;
 		UINT MHeight;
-
-		//vector<Scene*> MScenes;
 	};
 }
 

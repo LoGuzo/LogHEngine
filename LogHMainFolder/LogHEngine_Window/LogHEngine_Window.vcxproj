@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LogHLoadResources.h" />
     <ClInclude Include="LogHEndScene.h" />
     <ClInclude Include="LogHLoadScene.h" />
     <ClInclude Include="LogHPlayerCharacter.h" />

@@ -24,6 +24,9 @@
     <ClInclude Include="LogHPlayerCharacter.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="LogHLoadResources.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHPlayScene.cpp">

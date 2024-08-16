@@ -6,6 +6,7 @@
 
 #include "..\\LogHEngine_Source\\LogHApplication.h"
 #include "..\\LogHEngine_Window\\LogHLoadScene.h"
+#include "..\\LogHEngine_Window\\LogHLoadResources.h"
 
 LogH::Application App;
 
@@ -133,6 +134,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+   LogH::LoadResources();
    LogH::LoadScenes();
 
    return TRUE;
