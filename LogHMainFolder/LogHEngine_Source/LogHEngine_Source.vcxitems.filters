@@ -64,6 +64,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHAnimator.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Define.h">
@@ -137,6 +141,10 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHRenderer.h">
       <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHAnimator.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

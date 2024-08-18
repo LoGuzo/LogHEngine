@@ -1,5 +1,7 @@
 #pragma once
 #include "LogHCharacter.h"
+#include "LogHAnimator.h"
+#include "LogHTexture.h"
 
 namespace LogH
 {
@@ -15,5 +17,14 @@ namespace LogH
 		virtual void Render(HDC Hdc) override;
 
 	private:
+		void AddIdleAnim();
+		void AddMoveAnim();
+		void AddAttackAnim();
+		void AddDieAnim();
+
+	private:
+		Graphics::Texture* CharTexture;
+		Graphics::Texture* FlipCharTexture;
+		Animator* MyAnimator;
     };
 }

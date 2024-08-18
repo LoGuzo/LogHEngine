@@ -10,6 +10,9 @@
     <Filter Include="Resource">
       <UniqueIdentifier>{c6e39708-4bb5-4b36-b430-be461293f79d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="InputComponent">
+      <UniqueIdentifier>{30e3702e-2ba0-430c-bd36-c35f97b61d5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LogHLoadScene.h">
@@ -30,6 +33,9 @@
     <ClInclude Include="LogHLoadResources.h">
       <Filter>Resource</Filter>
     </ClInclude>
+    <ClInclude Include="LogHPlayerInputComponent.h">
+      <Filter>InputComponent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHPlayScene.cpp">
@@ -43,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="LogHPlayerCharacter.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="LogHPlayerInputComponent.cpp">
+      <Filter>InputComponent</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

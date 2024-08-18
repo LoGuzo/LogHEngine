@@ -3,6 +3,7 @@
 
 namespace LogH
 {
+	using namespace Math;
 	class Entity
 	{
 

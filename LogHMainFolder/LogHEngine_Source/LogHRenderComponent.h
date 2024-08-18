@@ -15,11 +15,11 @@ namespace LogH
 		virtual void LateUpdate() override;
 		virtual void Render(HDC Hdc) override;
 
-		void SetTexture(Graphics::Texture* _Texture) { MTexture = _Texture; }
+		void SetTexture(Graphics::Texture* _Texture) { MyTexture = _Texture; }
 		void SetSize(Math::Vector2 _TScale) { TScale = _TScale; }
 
 	private:
-		Graphics::Texture* MTexture;
+		Graphics::Texture* MyTexture;
 		Math::Vector2 TScale;
     };
 }

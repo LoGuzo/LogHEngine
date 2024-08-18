@@ -4,7 +4,9 @@ namespace LogH
 {
 	TransformComponent::TransformComponent()
 		: Component(Enums::E_ComponentType::Transform)
-		, MPosition()
+		, MPosition(Vector2::One)
+		, MScale(Vector2::One)
+		, MRotation(0.f)
 	{
 	}
 

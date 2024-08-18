@@ -8,14 +8,14 @@ namespace LogH
 {
 	RenderComponent::RenderComponent()
 		: Component(Enums::E_ComponentType::Renderer)
-		, MTexture(nullptr)
+		, MyTexture(nullptr)
 		, TScale(Vector2::One)
 	{
 	}
 
 	RenderComponent::~RenderComponent()
 	{
-		SAFE_DELETE(MTexture);
+		SAFE_DELETE(MyTexture);
 	}
 
 	void RenderComponent::Initialize()
@@ -32,27 +32,48 @@ namespace LogH
 
 	void RenderComponent::Render(HDC Hdc)
 	{
-		if (!MTexture)
+		if (!MyTexture)
 			assert(false);
 
 		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
-		Vector2 pos = MyTransform->GetPosition();
+		Vector2 Pos = MyTransform->GetPosition();
+		Vector2 Scale = MyTransform->GetScale();
+		float Rotation = MyTransform->GetRotation();
 
-		if(Renderer::MainCamera)
-			pos = Renderer::MainCamera->CaluatePosition(pos);
+		if (Renderer::MainCamera)
+			Pos = Renderer::MainCamera->CaluatePosition(Pos);
 
-		if (MTexture->GetTextureType() == Graphics::Texture::E_TextureType::Bmp)
+		if (MyTexture->GetTextureType() == Graphics::Texture::E_TextureType::Bmp)
 		{
-			TransparentBlt(Hdc, pos.x, pos.y
-				, MTexture->GetWidth(), MTexture->GetHeight()
-				, MTexture->GetHdc(), 0, 0, MTexture->GetWidth(), MTexture->GetHeight()
+			TransparentBlt(Hdc, Pos.x, Pos.y
+				, MyTexture->GetWidth() * TScale.x * Scale.x, MyTexture->GetHeight() * TScale.y * Scale.y
+				, MyTexture->GetHdc(), 0, 0, MyTexture->GetWidth(), MyTexture->GetHeight()
 				, RGB(255, 0, 255));
 		}
-		else if (MTexture->GetTextureType() == Graphics::Texture::E_TextureType::Png)
+		else if (MyTexture->GetTextureType() == Graphics::Texture::E_TextureType::Png)
 		{
-			Gdiplus::Graphics graphcis(Hdc);
-			graphcis.DrawImage(MTexture->GetImage(),
-				Gdiplus::Rect(pos.x, pos.y, MTexture->GetWidth() * TScale.x, MTexture->GetHeight() * TScale.y));
+			Gdiplus::ImageAttributes ImgAttribute = {};
+			ImgAttribute.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 255, 255));
+
+			Gdiplus::Graphics graphics(Hdc);
+
+			graphics.TranslateTransform(Pos.x,Pos.y);
+			graphics.RotateTransform(Rotation);
+			graphics.TranslateTransform(-Pos.x, Pos.y);
+
+			graphics.DrawImage(MyTexture->GetImage(),
+				Gdiplus::Rect
+				(
+					Pos.x, Pos.y
+					, MyTexture->GetWidth() * TScale.x * Scale.x
+					, MyTexture->GetHeight() * TScale.y * Scale.y
+				)
+				, 0, 0
+				, MyTexture->GetWidth() * TScale.x * Scale.x
+				, MyTexture->GetHeight() * TScale.y * Scale.y
+				, Gdiplus::UnitPixel
+				, nullptr
+			);
 		}
 	}
 }

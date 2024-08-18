@@ -7,6 +7,7 @@ namespace LogH :: Enums
 		Input,
 		Transform,
 		Renderer,
+		Animator,
 		Camera,
 		End,
 	};
@@ -18,6 +19,7 @@ namespace LogH :: Enums
 		//Tree,
 		Character,
 		Player,
+		Particle,
 		Max = 16,
 	};
 
@@ -25,7 +27,14 @@ namespace LogH :: Enums
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
+	};
+
+	enum class E_AnimDirectionType
+	{
+		UpDown,
+		LeftRight,
 	};
 }

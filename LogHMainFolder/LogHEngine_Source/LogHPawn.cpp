@@ -5,7 +5,6 @@ namespace LogH
 {
 	Pawn::Pawn()
 	{
-		AddComponent<InputComponent>(L"InputComponent");
 	}
 
 	Pawn::~Pawn()

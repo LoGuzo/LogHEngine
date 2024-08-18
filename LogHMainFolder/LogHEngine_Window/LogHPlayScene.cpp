@@ -1,5 +1,6 @@
 #include "LogHPlayScene.h"
 //#include "LogHTitleScene.h"
+#include "LogHAnimator.h"
 #include "LogHCameraComponent.h"
 #include "LogHInput.h"
 #include "LogHSceneManager.h"
@@ -35,9 +36,9 @@ namespace LogH
 		MyPlayerCharacter = Object::Instantiate<PlayerCharacter>
 			(E_LayerType::Character, Vector2(0.f, 0.f));
 
-		RenderComponent* Rc = MyPlayerCharacter->AddComponent<RenderComponent>(L"Render");
-		Graphics::Texture* Char = ResourceManager::Find<Graphics::Texture>(L"Character");
-		Rc->SetTexture(Char);
+		//RenderComponent* Rc = MyPlayerCharacter->AddComponent<RenderComponent>(L"Render");
+
+		//Rc->SetTexture(Char);
 
 		BackGroundObj = Object::Instantiate<GameObject>
 			(E_LayerType::BackGreound, Vector2(0.f, 0.f));
