@@ -63,8 +63,6 @@ namespace LogH
 
 	void MushScriptComponent::WalkState()
 	{
-
-		//State = E_State::Idle;
 		const int Speed = 100.f;
 		const float DeltaTime = Time::GetDeltaTime();
 

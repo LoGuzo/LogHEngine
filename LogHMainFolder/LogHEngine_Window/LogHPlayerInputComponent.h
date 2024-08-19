@@ -37,6 +37,7 @@ namespace LogH
 	private:
 		E_State State;
 		E_Direction Direction;
-		class Animator* MyAnimator;
+		Animator* MyAnimator;
+
     };
 }

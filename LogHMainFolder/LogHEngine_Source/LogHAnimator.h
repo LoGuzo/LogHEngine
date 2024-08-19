@@ -8,6 +8,29 @@ namespace LogH
 	class Animator : public Component
 	{
 	public:
+		struct Event
+		{
+			void operator=(function<void()> Func)
+			{
+				MyEvent = move(Func);
+			}
+
+			void operator()()
+			{
+				if (MyEvent)
+					MyEvent;
+			}
+
+			function<void()> MyEvent;
+		};
+
+		struct Events
+		{
+			Event StartEvent;
+			Event CompleteEvent;
+			Event EndEvent;
+		};
+
 		Animator();
 		~Animator();
 
@@ -27,9 +50,13 @@ namespace LogH
 		Animation* FindAnimation(const std::wstring& Name);
 		void PlayAnimation(const wstring& Name, bool loop = true);
 
+		bool IsCompleteAnimation() { return CurActiveAnimation->IsComplete(); }
+
 	private:
 		map<wstring, Animation*> Animations;
 		Animation* CurActiveAnimation;
 		bool bLoop;
+
+		map<wstring, Events*> MyEvents;
 	};
 }

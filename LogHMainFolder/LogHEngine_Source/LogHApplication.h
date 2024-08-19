@@ -17,6 +17,7 @@ namespace LogH
 		void LateUpdate();
 		void Render();
 
+		HWND GetHwnd() { return MHwnd; }
 		HDC GetHdc() { return MHdc; }
 		UINT GetWidth() { return MWidth; }
 		UINT GetHeight() { return MHeight; }

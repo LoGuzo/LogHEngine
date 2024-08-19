@@ -1,8 +1,12 @@
 #include "LogHInput.h"
+#include "LogHApplication.h"
+
+extern LogH::Application App;
 
 namespace LogH
 {
 	vector<Input::Key> Input::Keys = {};
+	Math::Vector2 MousePosition = Math::Vector2::One;
 
 	int ASCII[(int)E_KeyCode::End] =
 	{
@@ -10,6 +14,7 @@ namespace LogH
 		'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
 		'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 		VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP,
+		VK_LBUTTON, VK_RBUTTON,
 	};
 
 	void Input::Initailize()
@@ -46,10 +51,19 @@ namespace LogH
 
 	void Input::UpdateKey(Input::Key& _Key)
 	{
-		if (IsKeyDown(_Key.KeyCode))
-			UpdateKeyDown(_Key);
+		if (GetFocus())
+		{
+			if (IsKeyDown(_Key.KeyCode))
+				UpdateKeyDown(_Key);
+			else
+				UpdateKeyUp(_Key);
+
+			GetMousePositionByWindow();
+		}
 		else
-			UpdateKeyUp(_Key);
+		{
+			ClearKeys();
+		}
 	}
 
 	bool Input::IsKeyDown(E_KeyCode _KeyCode)
@@ -73,5 +87,28 @@ namespace LogH
 		else
 			_Key.State = E_KeyState::None;
 		_Key.bPressed = false;
+	}
+	void Input::GetMousePositionByWindow()
+	{
+		POINT MousePos = {};
+		GetCursorPos(&MousePos);
+
+		ScreenToClient(App.GetHwnd(), &MousePos);
+
+		MousePosition.x = MousePos.x;
+		MousePosition.y = MousePos.y;
+	}
+
+	void Input::ClearKeys()
+	{
+		for (Key& key : Keys)
+		{
+			if (key.State == E_KeyState::Down || key.State == E_KeyState::Down)
+				key.State = E_KeyState::Up;
+			else if (key.State == E_KeyState::Up)
+				key.State = E_KeyState::None;
+
+			key.bPressed = false;
+		}
 	}
 }
