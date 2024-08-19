@@ -20,5 +20,6 @@ namespace LogH
 	private:
 		class GameObject* BackGroundObj;
 		class PlayerCharacter* MyPlayerCharacter;
+		class EnemyCharacter* EnemyMush;
 	};
 }

@@ -82,7 +82,7 @@ namespace LogH
 		else if (type == Texture::E_TextureType::Png)
 		{
 			Gdiplus::ImageAttributes ImgAttribute = {};
-			ImgAttribute.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 255, 255));
+			ImgAttribute.SetColorKey(Gdiplus::Color(147, 187, 236), Gdiplus::Color(147, 187, 236));
 
 			Gdiplus::Graphics graphics(Hdc);
 
@@ -101,14 +101,13 @@ namespace LogH
 				, sprite.Size.x
 				, sprite.Size.y
 				, Gdiplus::UnitPixel
-				, nullptr
+				, &ImgAttribute
 			);
 		}
 	}
 
 	void Animation::CreateAnimation(const wstring& Name
 		, Texture* SpriteSheet
-		, Enums::E_AnimDirectionType Type
 		, Vector2 LeftTop
 		, Vector2 Size, Vector2 Root
 		, UINT SpriteLen, float Duration)
@@ -117,17 +116,8 @@ namespace LogH
 		for (size_t i = 0; i < SpriteLen; i++)
 		{
 			Sprite sprite = {};
-			if (Type == Enums::E_AnimDirectionType::UpDown)
-			{
-				sprite.LeftTop.x = LeftTop.x;
-				sprite.LeftTop.y = LeftTop.y + (Size.y * i);
-			}
-			else
-			{
-				Sprite sprite = {};
-				sprite.LeftTop.x = LeftTop.x + (Size.x * i);
-				sprite.LeftTop.y = LeftTop.y;
-			}
+			sprite.LeftTop.x = LeftTop.x + (Size.x * i) + i;
+			sprite.LeftTop.y = LeftTop.y;
 			sprite.Size = Size;
 			sprite.Root = Root;
 			sprite.Duration = Duration;

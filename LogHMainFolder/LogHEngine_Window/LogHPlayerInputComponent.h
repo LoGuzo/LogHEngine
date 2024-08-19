@@ -14,6 +14,12 @@ namespace LogH
 			Attack,
 		};
 
+		enum class E_Direction
+		{
+			Left,
+			Right,
+		};
+
 		PlayerInputComponent();
 		~PlayerInputComponent();
 
@@ -30,6 +36,7 @@ namespace LogH
 
 	private:
 		E_State State;
+		E_Direction Direction;
 		class Animator* MyAnimator;
     };
 }

@@ -43,7 +43,6 @@ namespace LogH
 
 	void Animator::CreateAnimation(const wstring& Name
 		, Graphics::Texture* SpriteSheet
-		, Enums::E_AnimDirectionType Type
 		, Vector2 LeftTop
 		, Vector2 Size, Vector2 Root
 		, UINT SpriteLen, float Duration)
@@ -55,7 +54,7 @@ namespace LogH
 			return;
 
 		animation = new Animation();
-		animation->CreateAnimation(Name, SpriteSheet, Type
+		animation->CreateAnimation(Name, SpriteSheet
 			, LeftTop, Size, Root, SpriteLen, Duration);
 
 		animation->SetAnimator(this);

@@ -6,12 +6,13 @@
 #include "LogHSceneManager.h"
 #include "LogHObject.h"
 #include "LogHGameObject.h"
-#include "LogHPlayerCharacter.h"
 #include "LogHRenderComponent.h"
 #include "LogHResourceManager.h"
 #include "LogHTransformComponent.h"
 #include "LogHTexture.h"
 #include "LogHRenderer.h"
+#include "Mario.h"
+#include "MushRoom.h"
 
 namespace LogH
 {
@@ -22,6 +23,7 @@ namespace LogH
 	PlayScene::~PlayScene()
 	{
 		SAFE_DELETE(MyPlayerCharacter);
+		SAFE_DELETE(EnemyMush);
 		SAFE_DELETE(BackGroundObj);
 	}
 
@@ -33,12 +35,11 @@ namespace LogH
 		/*CameraComponent* CameraComp = CameraObj->AddComponent<CameraComponent>(L"Camera");
 		Renderer::MainCamera = CameraComp;*/
 
-		MyPlayerCharacter = Object::Instantiate<PlayerCharacter>
-			(E_LayerType::Character, Vector2(0.f, 0.f));
+		MyPlayerCharacter = Object::Instantiate<Mario>
+			(E_LayerType::Character, Vector2(50.f, 50.f));
 
-		//RenderComponent* Rc = MyPlayerCharacter->AddComponent<RenderComponent>(L"Render");
-
-		//Rc->SetTexture(Char);
+		EnemyMush = Object::Instantiate<MushRoom>
+			(E_LayerType::Character, Vector2(200.f, 200.f));
 
 		BackGroundObj = Object::Instantiate<GameObject>
 			(E_LayerType::BackGreound, Vector2(0.f, 0.f));

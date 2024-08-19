@@ -7,9 +7,14 @@ namespace LogH
 {
 	void LoadResources()
 	{
-		ResourceManager::Load<Graphics::Texture>(L"BackGround", L"..\\Resources\\Img\\map\\MonsterMap.png");
-		ResourceManager::Load<Graphics::Texture>(L"Player", L"..\\Resources\\Img\\Character\\Player\\Player.png");
-		ResourceManager::Load<Graphics::Texture>(L"FlipPlayer", L"..\\Resources\\Img\\Character\\Player\\FilpPlayer.png");
-		ResourceManager::Load<Graphics::Texture>(L"Title", L"..\\Resources\\Img\\Title\\Title.png");
+		ResourceManager::Load<Graphics::Texture>(L"BackGround", L"..\\Resources\\Img\\map\\MarioMap1.png");
+
+		ResourceManager::Load<Graphics::Texture>(L"Mario", L"..\\Resources\\Img\\Character\\Mario.png");
+		ResourceManager::Load<Graphics::Texture>(L"MarioFlip", L"..\\Resources\\Img\\Character\\Flip_Mario.png");
+
+		ResourceManager::Load<Graphics::Texture>(L"Enemy", L"..\\Resources\\Img\\Character\\Enemy.png");
+		ResourceManager::Load<Graphics::Texture>(L"EnemyFlip", L"..\\Resources\\Img\\Character\\Flip_Enemy.png");
+		
+		ResourceManager::Load<Graphics::Texture>(L"Title", L"..\\Resources\\Img\\Title\\MarioMap1.png");
 	}
 }

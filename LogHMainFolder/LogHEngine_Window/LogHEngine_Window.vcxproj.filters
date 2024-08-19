@@ -4,14 +4,23 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{f4d23a59-88b4-4935-a1a2-0856eed63c7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents">
-      <UniqueIdentifier>{2b86433c-85f7-4825-a604-cf91382135b1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource">
       <UniqueIdentifier>{c6e39708-4bb5-4b36-b430-be461293f79d}</UniqueIdentifier>
     </Filter>
     <Filter Include="InputComponent">
       <UniqueIdentifier>{30e3702e-2ba0-430c-bd36-c35f97b61d5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{4b6f80b1-4b70-4010-a18b-1908b240b539}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Character">
+      <UniqueIdentifier>{b60f8adb-cc59-4396-9b5a-b0f5c0ec1fdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Character\Player">
+      <UniqueIdentifier>{656e0e60-0c46-4218-a426-7c9ae432a24c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Character\Enemy">
+      <UniqueIdentifier>{6e5fbf72-d5c8-44ef-89f2-5269b583317c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,15 +36,28 @@
     <ClInclude Include="LogHTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="LogHPlayerCharacter.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
     <ClInclude Include="LogHLoadResources.h">
       <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="LogHPlayerInputComponent.h">
       <Filter>InputComponent</Filter>
     </ClInclude>
+    <ClInclude Include="LogHBaseCharacter.h">
+      <Filter>Contents\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="LogHEnemyCharacter.h">
+      <Filter>Contents\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="LogHPlayerCharacter.h">
+      <Filter>Contents\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Mario.h">
+      <Filter>Contents\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="MushRoom.h">
+      <Filter>Contents\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="LogHMushScriptComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHPlayScene.cpp">
@@ -47,11 +69,24 @@
     <ClCompile Include="LogHTitleScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="LogHPlayerCharacter.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
     <ClCompile Include="LogHPlayerInputComponent.cpp">
       <Filter>InputComponent</Filter>
     </ClCompile>
+    <ClCompile Include="LogHBaseCharacter.cpp">
+      <Filter>Contents\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="LogHEnemyCharacter.cpp">
+      <Filter>Contents\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="LogHPlayerCharacter.cpp">
+      <Filter>Contents\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Mario.cpp">
+      <Filter>Contents\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="MushRoom.cpp">
+      <Filter>Contents\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="LogHMushScriptComponent.cpp" />
   </ItemGroup>
 </Project>

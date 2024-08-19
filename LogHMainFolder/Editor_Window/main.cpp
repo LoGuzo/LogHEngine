@@ -7,6 +7,7 @@
 #include "..\\LogHEngine_Source\\LogHApplication.h"
 #include "..\\LogHEngine_Window\\LogHLoadScene.h"
 #include "..\\LogHEngine_Window\\LogHLoadResources.h"
+#include <time.h>
 
 LogH::Application App;
 
@@ -116,8 +117,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   const UINT Width = 841;
-   const UINT Height = 842;
+   const UINT Width = 512;
+   const UINT Height = 512;
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, Width, Height, nullptr, nullptr, hInstance, nullptr);
@@ -136,6 +137,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    LogH::LoadResources();
    LogH::LoadScenes();
+
+   int a = 0;
+   srand((UINT)(&a));
 
    return TRUE;
 }

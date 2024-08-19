@@ -18,7 +18,6 @@ namespace LogH
 
 		void CreateAnimation(const wstring& Name
 			, Graphics::Texture* SpriteSheet
-			, Enums::E_AnimDirectionType Type
 			, Vector2 LeftTop
 			, Vector2 Size
 			, Vector2 Root

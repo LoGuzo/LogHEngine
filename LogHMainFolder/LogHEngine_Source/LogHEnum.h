@@ -32,9 +32,10 @@ namespace LogH :: Enums
 		End,
 	};
 
-	enum class E_AnimDirectionType
+	enum class E_CharacterType
 	{
-		UpDown,
-		LeftRight,
+		Player,
+		Enemy,
+		Npc,
 	};
 }

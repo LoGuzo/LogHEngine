@@ -1,11 +1,11 @@
 #pragma once
-#include "LogHCharacter.h"
+#include "LogHBaseCharacter.h"
 #include "LogHAnimator.h"
 #include "LogHTexture.h"
 
 namespace LogH
 {
-    class PlayerCharacter : public Character
+    class PlayerCharacter : public BaseCharacter
     {
 	public:
 		PlayerCharacter();
@@ -16,15 +16,10 @@ namespace LogH
 		virtual void LateUpdate() override;
 		virtual void Render(HDC Hdc) override;
 
-	private:
-		void AddIdleAnim();
-		void AddMoveAnim();
-		void AddAttackAnim();
-		void AddDieAnim();
-
-	private:
-		Graphics::Texture* CharTexture;
-		Graphics::Texture* FlipCharTexture;
-		Animator* MyAnimator;
+	protected:
+		virtual void AddIdleAnim() override;
+		virtual void AddMoveAnim() override;
+		virtual void AddAttackAnim() override;
+		virtual void AddDieAnim() override;
     };
 }

@@ -132,6 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LogHMushScriptComponent.h" />
+    <ClInclude Include="MushRoom.h" />
+    <ClInclude Include="LogHBaseCharacter.h" />
+    <ClInclude Include="LogHEnemyCharacter.h" />
     <ClInclude Include="LogHLoadResources.h" />
     <ClInclude Include="LogHEndScene.h" />
     <ClInclude Include="LogHLoadScene.h" />
@@ -139,13 +143,19 @@
     <ClInclude Include="LogHPlayerInputComponent.h" />
     <ClInclude Include="LogHPlayScene.h" />
     <ClInclude Include="LogHTitleScene.h" />
+    <ClInclude Include="Mario.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LogHMushScriptComponent.cpp" />
+    <ClCompile Include="MushRoom.cpp" />
+    <ClCompile Include="LogHBaseCharacter.cpp" />
     <ClCompile Include="LogHEndScene.cpp" />
+    <ClCompile Include="LogHEnemyCharacter.cpp" />
     <ClCompile Include="LogHPlayerCharacter.cpp" />
     <ClCompile Include="LogHPlayerInputComponent.cpp" />
     <ClCompile Include="LogHPlayScene.cpp" />
     <ClCompile Include="LogHTitleScene.cpp" />
+    <ClCompile Include="Mario.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

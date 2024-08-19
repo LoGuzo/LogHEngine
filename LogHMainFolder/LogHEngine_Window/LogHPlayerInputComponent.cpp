@@ -9,6 +9,7 @@ namespace LogH
 {
 	PlayerInputComponent::PlayerInputComponent()
 		: State(E_State::Idle)
+		, Direction(E_Direction::Right)
 		, MyAnimator(nullptr)
 	{
 	}
@@ -25,7 +26,10 @@ namespace LogH
 	void PlayerInputComponent::Update()
 	{
 		if (!MyAnimator)
+		{
 			MyAnimator = GetOwner()->GetComponent<Animator>();
+			MyAnimator->PlayAnimation(L"RightIdle", false);
+		}
 
 		switch (State)
 		{
@@ -44,30 +48,6 @@ namespace LogH
 		default:
 			break;
 		}
-		/*const int Speed = 100.f;
-		const float DeltaTime = Time::GetDeltaTime();
-
-		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
-		Vector2 pos = MyTransform->GetPosition();
-
-		if (Input::GetKeyPressed(E_KeyCode::Left))
-		{
-			pos.x -= Speed * DeltaTime;
-		}
-		if (Input::GetKeyPressed(E_KeyCode::Right))
-		{
-			pos.x += Speed * DeltaTime;
-		}
-		if (Input::GetKeyPressed(E_KeyCode::Up))
-		{
-			pos.y -= Speed * DeltaTime;
-		}
-		if (Input::GetKeyPressed(E_KeyCode::Down))
-		{
-			pos.y += Speed * DeltaTime;
-		}
-
-		MyTransform->SetPosition(pos);*/
 	}
 
 	void PlayerInputComponent::LateUpdate()
@@ -83,22 +63,30 @@ namespace LogH
 		if (Input::GetKeyPressed(E_KeyCode::Left))
 		{
 			State = E_State::Walk;
+			Direction = E_Direction::Left;
 			MyAnimator->PlayAnimation(L"LeftMove");
 		}
 		if (Input::GetKeyPressed(E_KeyCode::Right))
 		{
 			State = E_State::Walk;
+			Direction = E_Direction::Right;
 			MyAnimator->PlayAnimation(L"RightMove");
 		}
 		if (Input::GetKeyPressed(E_KeyCode::Up))
 		{
 			State = E_State::Walk;
-			MyAnimator->PlayAnimation(L"UpMove");
+			if(Direction == E_Direction::Right)
+				MyAnimator->PlayAnimation(L"RightJump");
+			else
+				MyAnimator->PlayAnimation(L"LeftJump");
 		}
 		if (Input::GetKeyPressed(E_KeyCode::Down))
 		{
 			State = E_State::Walk;
-			MyAnimator->PlayAnimation(L"DownMove");
+			if (Direction == E_Direction::Right)
+				MyAnimator->PlayAnimation(L"RightCrounch", false);
+			else
+				MyAnimator->PlayAnimation(L"LeftCrounch", false);
 		}
 	}
 
@@ -132,46 +120,40 @@ namespace LogH
 		if (Input::GetKeyUp(E_KeyCode::Left))
 		{
 			State = E_State::Idle;
+			Direction = E_Direction::Left;
 			MyAnimator->PlayAnimation(L"LeftIdle", false);
 		}
 		else if (Input::GetKeyUp(E_KeyCode::Right))
 		{
 			State = E_State::Idle;
+			Direction = E_Direction::Right;
 			MyAnimator->PlayAnimation(L"RightIdle", false);
 		}
 		else if (Input::GetKeyUp(E_KeyCode::Up))
 		{
 			State = E_State::Idle;
-			MyAnimator->PlayAnimation(L"UpIdle", false);
+			if (Direction == E_Direction::Right)
+				MyAnimator->PlayAnimation(L"RightIdle", false);
+			else
+				MyAnimator->PlayAnimation(L"LeftIdle", false);
 		}
 		else if (Input::GetKeyUp(E_KeyCode::Down))
 		{
 			State = E_State::Idle;
-			MyAnimator->PlayAnimation(L"DownIdle", false);
+			if (Direction == E_Direction::Right)
+				MyAnimator->PlayAnimation(L"RightIdle", false);
+			else
+				MyAnimator->PlayAnimation(L"LeftIdle", false);
 		}
 	}
 
 	void PlayerInputComponent::DieState()
 	{
-		if (Input::GetKeyPressed(E_KeyCode::Left))
-			State = E_State::Walk;
-		if (Input::GetKeyPressed(E_KeyCode::Right))
-			State = E_State::Walk;
-		if (Input::GetKeyPressed(E_KeyCode::Up))
-			State = E_State::Walk;
-		if (Input::GetKeyPressed(E_KeyCode::Down))
-			State = E_State::Walk;
+
 	}
 
 	void PlayerInputComponent::AttackState()
 	{
-		if (Input::GetKeyPressed(E_KeyCode::Left))
-			State = E_State::Walk;
-		if (Input::GetKeyPressed(E_KeyCode::Right))
-			State = E_State::Walk;
-		if (Input::GetKeyPressed(E_KeyCode::Up))
-			State = E_State::Walk;
-		if (Input::GetKeyPressed(E_KeyCode::Down))
-			State = E_State::Walk;
+
 	}
 }
