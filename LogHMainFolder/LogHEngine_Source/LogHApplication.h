@@ -16,6 +16,7 @@ namespace LogH
 		void Update();
 		void LateUpdate();
 		void Render();
+		void Release();
 
 		HWND GetHwnd() { return MHwnd; }
 		HDC GetHdc() { return MHdc; }

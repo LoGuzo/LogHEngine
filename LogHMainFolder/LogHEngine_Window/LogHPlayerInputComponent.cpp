@@ -154,6 +154,7 @@ namespace LogH
 
 	void PlayerInputComponent::AttackState()
 	{
-
+		//이벤트 사용방법
+		//MyAnimator->GetCompleteEvent(L"Attack") = bind(&PlayerInputComponent::Attack, this);
 	}
 }

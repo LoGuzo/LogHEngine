@@ -5,6 +5,7 @@ namespace LogH
 	Animator::Animator()
 		: Component(Enums::E_ComponentType::Animator)
 		, Animations{}
+		, MyEvents{}
 		, CurActiveAnimation(nullptr)
 		, bLoop(false)
 	{
@@ -12,6 +13,13 @@ namespace LogH
 
 	Animator::~Animator()
 	{
+		for (auto& iter : MyEvents)
+			SAFE_DELETE(iter.second);
+
+		for (auto& iter : Animations)
+			SAFE_DELETE(iter.second);
+
+		SAFE_DELETE(CurActiveAnimation);
 	}
 
 	void Animator::Initialize()
@@ -23,10 +31,15 @@ namespace LogH
 		if (CurActiveAnimation)
 		{
 			CurActiveAnimation->Update();
-			if (CurActiveAnimation->IsComplete()
-				&& bLoop)
+
+			Events* events = FindEvents(CurActiveAnimation->GetName());
+			if (CurActiveAnimation->IsComplete())
 			{
-				CurActiveAnimation->Reset();
+				if(events)
+					events->CompleteEvent();
+
+				if(bLoop)
+					CurActiveAnimation->Reset();
 			}
 		}
 	}
@@ -59,6 +72,10 @@ namespace LogH
 
 		animation->SetAnimator(this);
 
+		Events* events = new Events();
+		if (events)
+			MyEvents.insert(make_pair(Name, events));
+
 		Animations.insert(make_pair(Name, animation));
 	}
 
@@ -76,8 +93,46 @@ namespace LogH
 		if (!animation)
 			return;
 
+		Events* PreEvents = FindEvents(CurActiveAnimation->GetName());
+		if(PreEvents)
+			PreEvents->EndEvent();
+		
+		Events* NextEvents = FindEvents(animation->GetName());
+		if(NextEvents)
+			NextEvents->StartEvent();
+
 		CurActiveAnimation = animation;
 		CurActiveAnimation->Reset();
+
 		bLoop = loop;
+	}
+
+	Animator::Events* Animator::FindEvents(const wstring& Name)
+	{
+		auto iter = MyEvents.find(Name);
+		if (iter == MyEvents.end())
+			return nullptr;
+
+		return iter->second;
+	}
+
+	function<void()>& Animator::GetStartEvent(const wstring& Name)
+	{
+		Events* events = FindEvents(Name);
+		return events->StartEvent.MyEvent;
+	}
+
+	function<void()>& Animator::GetCompleteEvent(const wstring& Name)
+	{
+		// TODO: 여기에 return 문을 삽입합니다.
+		Events* events = FindEvents(Name);
+		return events->CompleteEvent.MyEvent;
+	}
+
+	function<void()>& Animator::GetEndEvent(const wstring& Name)
+	{
+		// TODO: 여기에 return 문을 삽입합니다.
+		Events* events = FindEvents(Name);
+		return events->EndEvent.MyEvent;
 	}
 }

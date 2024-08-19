@@ -57,7 +57,9 @@
     <ClInclude Include="MushRoom.h">
       <Filter>Contents\Character\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="LogHMushScriptComponent.h" />
+    <ClInclude Include="LogHMushScriptComponent.h">
+      <Filter>InputComponent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHPlayScene.cpp">
@@ -87,6 +89,8 @@
     <ClCompile Include="MushRoom.cpp">
       <Filter>Contents\Character\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="LogHMushScriptComponent.cpp" />
+    <ClCompile Include="LogHMushScriptComponent.cpp">
+      <Filter>InputComponent</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

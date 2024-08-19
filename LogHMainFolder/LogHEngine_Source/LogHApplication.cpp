@@ -57,6 +57,11 @@ namespace LogH
 		CopyRenderTarget(MBackHdc, MHdc);
 	}
 
+	void Application::Release()
+	{
+		SceneManager::Release();
+	}
+
 	void Application::ClearRenderTarget()
 	{
 		Rectangle(MBackHdc, -1, -1, 1601, 901);

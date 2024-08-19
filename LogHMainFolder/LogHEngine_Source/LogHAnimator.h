@@ -50,6 +50,12 @@ namespace LogH
 		Animation* FindAnimation(const std::wstring& Name);
 		void PlayAnimation(const wstring& Name, bool loop = true);
 
+		Events* FindEvents(const wstring& Name);
+
+		function<void()>& GetStartEvent(const wstring& Name);
+		function<void()>& GetCompleteEvent(const wstring& Name);
+		function<void()>& GetEndEvent(const wstring& Name);
+
 		bool IsCompleteAnimation() { return CurActiveAnimation->IsComplete(); }
 
 	private:
