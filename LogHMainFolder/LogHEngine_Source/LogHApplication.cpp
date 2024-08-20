@@ -33,6 +33,8 @@ namespace LogH
 		Update();
 		LateUpdate();
 		Render();
+
+		Destroy();
 	}
 
 	void Application::Update()
@@ -55,6 +57,11 @@ namespace LogH
 		SceneManager::Render(MBackHdc);
 
 		CopyRenderTarget(MBackHdc, MHdc);
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::Release()

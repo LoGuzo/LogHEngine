@@ -6,6 +6,7 @@
 namespace LogH
 {
 	GameObject::GameObject()
+		: State(E_State::Active)
 	{
 		MComponents.resize((UINT)Enums::E_ComponentType::End);
 		//AddComponent<RenderComponent>(L"Render");
@@ -60,5 +61,10 @@ namespace LogH
 
 			Comp->Render(Hdc);
 		}
+	}
+	void GameObject::SetActive(bool Power)
+	{
+		if (Power) State = E_State::Active;
+		if (Power) State = E_State::Paused;
 	}
 }

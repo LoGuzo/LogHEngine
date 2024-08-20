@@ -7,6 +7,7 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <filesystem>
 
 #include "LogHMath.h"
 #include "LogHEnum.h"

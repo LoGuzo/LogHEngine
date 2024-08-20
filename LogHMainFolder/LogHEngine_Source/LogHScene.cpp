@@ -58,6 +58,17 @@ namespace LogH
 		}
 	}
 
+	void Scene::Destroy()
+	{
+		for (Layer* layer : Layers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Destory();
+		}
+	}
+
 	void Scene::OnEnter()
 	{
 	}

@@ -9,6 +9,14 @@ namespace LogH
 	class GameObject
 	{
 	public:
+		enum class E_State
+		{
+			Active,
+			Paused,
+			Dead,
+			End,
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -23,8 +31,14 @@ namespace LogH
 		template<typename T>
 		T* GetComponent();
 
+		E_State GetActive() { return State; }
+		void SetActive(bool Power);
+
+		void Death() { State = E_State::Dead; }
+
 	private:
 		vector<Component*> MComponents;
+		E_State State;
 	};
 
 

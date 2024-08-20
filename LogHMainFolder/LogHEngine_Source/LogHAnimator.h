@@ -47,6 +47,8 @@ namespace LogH
 			, UINT SpriteLen
 			, float Duration);
 
+		void CreateAnimationByFolder(const wstring& Name, const wstring& Path);
+
 		Animation* FindAnimation(const std::wstring& Name);
 		void PlayAnimation(const wstring& Name, bool loop = true);
 

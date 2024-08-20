@@ -12,6 +12,8 @@ namespace LogH
 		template<typename T>
 		static T* Load(const wstring& Key, const wstring& Path);
 
+		static void Insert(const wstring& Key, Resource* _Resource);
+
 	private:
 		static map<wstring, Resource*> Resources;
 	};

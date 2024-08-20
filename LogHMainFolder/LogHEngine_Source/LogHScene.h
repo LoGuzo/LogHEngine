@@ -17,6 +17,7 @@ namespace LogH
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC MHdc);
+		virtual void Destroy();
 
 		virtual void OnEnter();
 		virtual void OnExit();

@@ -1,10 +1,36 @@
 #include "LogHTexture.h"
 #include "LogHApplication.h"
+#include "LogHResourceManager.h"
 
 extern LogH::Application App;
 
 namespace LogH::Graphics
 {
+	Texture* Texture::Create(const wstring& Name, UINT Width, UINT Height)
+	{
+		Texture* Image = ResourceManager::Find<Texture>(Name);
+		if (Image)
+			return Image;
+
+		Image = new Texture();
+		Image->SetName(Name);
+		Image->SetWidth(Width);
+		Image->SetHeight(Height);
+
+		HDC Hdc = App.GetHdc();
+		HWND Hwnd = App.GetHwnd();
+
+		Image->MBitmap = CreateCompatibleBitmap(Hdc, Width, Height);
+		Image->MHdc = CreateCompatibleDC(Hdc);
+
+		HBITMAP oldBitMap = (HBITMAP)SelectObject(Image->MHdc, Image->MBitmap);
+		DeleteObject(oldBitMap);
+
+		ResourceManager::Insert(Name, Image);
+
+		return Image;
+	}
+
 	Texture::Texture()
 		:Resource(Enums::E_ResourceType::Texture)
 	{

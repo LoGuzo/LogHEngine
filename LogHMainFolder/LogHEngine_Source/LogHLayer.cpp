@@ -20,6 +20,7 @@ namespace LogH
 			if (GameObj == nullptr)
 				continue;
 
+
 			GameObj->Initialize();
 		}
 	}
@@ -29,6 +30,11 @@ namespace LogH
 		for (GameObject* GameObj : GameObjects)
 		{
 			if (GameObj == nullptr)
+				continue;
+
+			GameObject::E_State state = GameObj->GetActive();
+			if (state == GameObject::E_State::Paused
+				|| state == GameObject::E_State::Dead)
 				continue;
 
 			GameObj->Update();
@@ -42,6 +48,11 @@ namespace LogH
 			if (GameObj == nullptr)
 				continue;
 
+			GameObject::E_State state = GameObj->GetActive();
+			if (state == GameObject::E_State::Paused
+				|| state == GameObject::E_State::Dead)
+				continue;
+
 			GameObj->LateUpdate();
 		}
 	}
@@ -53,7 +64,32 @@ namespace LogH
 			if (GameObj == nullptr)
 				continue;
 
+			GameObject::E_State state = GameObj->GetActive();
+			if (state == GameObject::E_State::Paused
+				|| state == GameObject::E_State::Dead)
+				continue;
+
 			GameObj->Render(MHdc);
+		}
+	}
+
+	void Layer::Destory()
+	{
+		for (GameObjectIter iter = GameObjects.begin()
+			; iter != GameObjects.end()
+			; )
+		{
+			GameObject::E_State Active = (*iter)->GetActive();
+			if (Active == GameObject::E_State::Dead)
+			{
+				GameObject* DeathObj = (*iter);
+				iter = GameObjects.erase(iter);
+
+				SAFE_DELETE(DeathObj);
+
+				continue;
+			}
+			iter++;
 		}
 	}
 

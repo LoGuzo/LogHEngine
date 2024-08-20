@@ -32,4 +32,9 @@ namespace LogH::Object
 
 		return gameObject;
 	}
+
+	static void Destroy(GameObject* Object)
+	{
+		Object->Death();
+	}
 }

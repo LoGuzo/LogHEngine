@@ -39,6 +39,11 @@ namespace LogH
 		MActiveScene->Render(MHdc);
 	}
 
+	void SceneManager::Destroy()
+	{
+		MActiveScene->Destroy();
+	}
+
 	void SceneManager::Release()
 	{
 		for (auto& iter : MScene)

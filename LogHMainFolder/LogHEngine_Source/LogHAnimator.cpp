@@ -1,4 +1,5 @@
 #include "LogHAnimator.h"
+#include "LogHResourceManager.h"
 
 namespace LogH
 {
@@ -77,6 +78,46 @@ namespace LogH
 			MyEvents.insert(make_pair(Name, events));
 
 		Animations.insert(make_pair(Name, animation));
+	}
+
+	void Animator::CreateAnimationByFolder(const wstring& Name, const wstring& Path, Vector2 Root, float Duration)
+	{
+		Animation* animation = nullptr;
+		animation = FindAnimation(Name);
+
+		if (animation)
+			return;
+
+		int FileCount = 0;
+
+		filesystem::path fs(Path);
+		vector<Graphics::Texture*> Imgs = {};
+		for (auto& p : filesystem::recursive_directory_iterator(fs))
+		{
+			wstring FileName = p.path().filename();
+			wstring FullName = p.path();
+
+			Graphics::Texture* texture = ResourceManager::Load<Graphics::Texture>(FileName, FullName);
+			Imgs.push_back(texture);
+			FileCount++;
+		}
+
+		UINT SheetWidth = Imgs[0]->GetWidth() * FileCount;
+		UINT SheetHeight = Imgs[0]->GetHeight();
+
+		Graphics::Texture* SpriteSheet = Graphics::Texture::Create(Name, SheetWidth, SheetHeight);
+
+		UINT ImgWidth = Imgs[0]->GetWidth();
+		UINT ImgHeight = Imgs[0]->GetHeight();
+
+		for (size_t i = 0; i < Imgs.size(); i++)
+		{
+			BitBlt(SpriteSheet->GetHdc(), i * ImgWidth, 0
+				, ImgWidth, ImgHeight
+				, Imgs[i]->GetHdc(), 0, 0, SRCCOPY);
+		}
+
+		CreateAnimation(Name, SpriteSheet, Vector2::Zero, Vector2(ImgWidth, ImgHeight), Root, FileCount, Duration);
 	}
 
 	Animation* Animator::FindAnimation(const std::wstring& Name)

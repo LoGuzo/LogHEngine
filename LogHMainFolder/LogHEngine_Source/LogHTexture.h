@@ -13,13 +13,17 @@ namespace LogH :: Graphics
             None,
         };
 
+        static Texture* Create(const wstring& Name, UINT Width, UINT Height);
+
         Texture();
         ~Texture();
 
         virtual HRESULT Load(const wstring& _Path) override;
 
         UINT GetWidth() { return MWidth; }
+        void SetWidth(UINT _MWidth) { MWidth = _MWidth; }
         UINT GetHeight() { return MHeight; }
+        void SetHeight(UINT _MHeight) { MHeight = _MHeight; }
         HDC GetHdc() { return MHdc; }
         E_TextureType GetTextureType() { return Type; }
         Gdiplus::Image* GetImage() { return MImg; }

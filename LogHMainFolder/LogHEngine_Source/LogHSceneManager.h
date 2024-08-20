@@ -16,6 +16,7 @@ namespace LogH
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC MHdc);
+		static void Destroy();
 		static void Release();
 
 	private:

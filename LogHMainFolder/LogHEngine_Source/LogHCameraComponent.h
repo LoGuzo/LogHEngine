@@ -17,6 +17,8 @@ namespace LogH
 		virtual void LateUpdate() override;
 		virtual void Render(HDC Hdc) override;
 
+		void SetTarget(GameObject* _Target) { Target = _Target; }
+
 	private:
 		Vector2 Distance;
 		Vector2 Resolution;
