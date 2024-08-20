@@ -6,7 +6,6 @@ namespace LogH
 	Animator::Animator()
 		: Component(Enums::E_ComponentType::Animator)
 		, Animations{}
-		, MyEvents{}
 		, CurActiveAnimation(nullptr)
 		, bLoop(false)
 	{
@@ -16,11 +15,6 @@ namespace LogH
 	{
 		for (auto& iter : MyEvents)
 			SAFE_DELETE(iter.second);
-
-		for (auto& iter : Animations)
-			SAFE_DELETE(iter.second);
-
-		SAFE_DELETE(CurActiveAnimation);
 	}
 
 	void Animator::Initialize()
@@ -134,10 +128,13 @@ namespace LogH
 		if (!animation)
 			return;
 
-		Events* PreEvents = FindEvents(CurActiveAnimation->GetName());
-		if(PreEvents)
-			PreEvents->EndEvent();
-		
+		if (CurActiveAnimation)
+		{
+			Events* PreEvents = FindEvents(CurActiveAnimation->GetName());
+			if (PreEvents)
+				PreEvents->EndEvent();
+		}
+
 		Events* NextEvents = FindEvents(animation->GetName());
 		if(NextEvents)
 			NextEvents->StartEvent();
@@ -165,14 +162,12 @@ namespace LogH
 
 	function<void()>& Animator::GetCompleteEvent(const wstring& Name)
 	{
-		// TODO: 여기에 return 문을 삽입합니다.
 		Events* events = FindEvents(Name);
 		return events->CompleteEvent.MyEvent;
 	}
 
 	function<void()>& Animator::GetEndEvent(const wstring& Name)
 	{
-		// TODO: 여기에 return 문을 삽입합니다.
 		Events* events = FindEvents(Name);
 		return events->EndEvent.MyEvent;
 	}

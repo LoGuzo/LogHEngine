@@ -8,7 +8,7 @@ namespace LogH
 	{
 	public:
 		Resource(Enums::E_ResourceType _Type);
-		virtual ~Resource();
+		~Resource();
 
 		virtual HRESULT Load(const wstring& _Path) = 0;
 

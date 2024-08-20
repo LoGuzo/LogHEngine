@@ -13,5 +13,4 @@ namespace LogH
 
 		Resources.insert(make_pair(Key, _Resource));
 	}
-
 }

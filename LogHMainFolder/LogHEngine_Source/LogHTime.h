@@ -10,7 +10,7 @@ namespace LogH
 		static void Update();
 		static void Render(HDC Hdc);
 
-		static float GetDeltaTime() { return DeltaTime; }
+		__forceinline static float GetDeltaTime() { return DeltaTime; }
 
 	private:
 		static LARGE_INTEGER CpuFrequency;

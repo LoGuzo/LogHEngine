@@ -32,13 +32,15 @@ namespace LogH::Graphics
 	}
 
 	Texture::Texture()
-		:Resource(Enums::E_ResourceType::Texture)
+		: Resource(Enums::E_ResourceType::Texture)
+		, MImg(nullptr)
+		, bAlpha(false)
 	{
 	}
 
 	Texture::~Texture()
 	{
-		SAFE_DELETE(MImg);
+		//SAFE_DELETE(MImg);
 	}
 
 	HRESULT Texture::Load(const wstring& _Path)
@@ -59,6 +61,11 @@ namespace LogH::Graphics
 
 			MWidth = info.bmWidth;
 			MHeight = info.bmHeight;
+
+			if (info.bmBitsPixel == 32)
+				bAlpha = true;
+			else if (info.bmBitsPixel == 24)
+				bAlpha = false;
 
 			HDC MainHdc = App.GetHdc();
 			MHdc = CreateCompatibleDC(MainHdc);

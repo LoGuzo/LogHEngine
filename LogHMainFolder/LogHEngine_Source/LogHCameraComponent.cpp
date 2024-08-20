@@ -18,7 +18,6 @@ namespace LogH
 
 	CameraComponent::~CameraComponent()
 	{
-		SAFE_DELETE(Target);
 	}
 
 	void CameraComponent::Initialize()

@@ -20,8 +20,6 @@ namespace LogH
 
 	Animation::~Animation()
 	{
-		SAFE_DELETE(MyAnimator);
-		SAFE_DELETE(MyTexture);
 	}
 
 	HRESULT Animation::Load(const wstring& _Path)
@@ -65,19 +63,32 @@ namespace LogH
 
 		if (type == Texture::E_TextureType::Bmp)
 		{
-			BLENDFUNCTION func = {};
-			func.BlendOp = AC_SRC_OVER;
-			func.BlendFlags = 0;
-			func.AlphaFormat = AC_SRC_ALPHA;
-			func.SourceConstantAlpha = 255;
-
 			HDC ImgHdc = MyTexture->GetHdc();
 
-			AlphaBlend(Hdc, Pos.x - (sprite.Size.x / 2.f), Pos.y - (sprite.Size.y / 2.f)
-				, sprite.Size.x * Scale.x, sprite.Size.y * Scale.y
-				, ImgHdc, sprite.LeftTop.x, sprite.LeftTop.y
-				, sprite.Size.x, sprite.Size.y
-				, func);
+			if (MyTexture->IsAlpha())
+			{
+				BLENDFUNCTION func = {};
+				func.BlendOp = AC_SRC_OVER;
+				func.BlendFlags = 0;
+				func.AlphaFormat = AC_SRC_ALPHA;
+				func.SourceConstantAlpha = 255;
+
+				AlphaBlend(Hdc, Pos.x - (sprite.Size.x / 2.f) + sprite.Root.x
+					, Pos.y - (sprite.Size.y / 2.f) + sprite.Root.y
+					, sprite.Size.x * Scale.x, sprite.Size.y * Scale.y
+					, ImgHdc, sprite.LeftTop.x, sprite.LeftTop.y
+					, sprite.Size.x, sprite.Size.y
+					, func);
+			}
+			else
+			{
+				TransparentBlt(Hdc, Pos.x - (sprite.Size.x / 2.f) + sprite.Root.x
+					, Pos.y - (sprite.Size.y / 2.f) + sprite.Root.y
+					, sprite.Size.x * Scale.x, sprite.Size.y * Scale.y
+					, ImgHdc, sprite.LeftTop.x, sprite.LeftTop.y
+					, sprite.Size.x, sprite.Size.y
+					, RGB(255, 0, 255));
+			}
 		}
 		else if (type == Texture::E_TextureType::Png)
 		{

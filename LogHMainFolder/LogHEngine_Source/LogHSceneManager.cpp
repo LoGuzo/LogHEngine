@@ -48,7 +48,5 @@ namespace LogH
 	{
 		for (auto& iter : MScene)
 			SAFE_DELETE(iter.second);
-
-		SAFE_DELETE(MActiveScene);
 	}
 }

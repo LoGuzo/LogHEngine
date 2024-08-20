@@ -34,10 +34,10 @@ namespace LogH
 		static void Initailize();
 		static void Update();
 
-		static bool GetKeyDown(E_KeyCode KeyCode) { return Keys[(UINT)KeyCode].State == E_KeyState::Down; }
-		static bool GetKeyUp(E_KeyCode KeyCode) { return Keys[(UINT)KeyCode].State == E_KeyState::Up; }
-		static bool GetKeyPressed(E_KeyCode KeyCode) { return Keys[(UINT)KeyCode].State == E_KeyState::Pressed; }
-		static Math::Vector2 GetMousePosition() { return MousePosition; }
+		__forceinline static bool GetKeyDown(E_KeyCode KeyCode) { return Keys[(UINT)KeyCode].State == E_KeyState::Down; }
+		__forceinline static bool GetKeyUp(E_KeyCode KeyCode) { return Keys[(UINT)KeyCode].State == E_KeyState::Up; }
+		__forceinline static bool GetKeyPressed(E_KeyCode KeyCode) { return Keys[(UINT)KeyCode].State == E_KeyState::Pressed; }
+		__forceinline static Math::Vector2 GetMousePosition() { return MousePosition; }
 
 	private:
 		static void CreateKeys();

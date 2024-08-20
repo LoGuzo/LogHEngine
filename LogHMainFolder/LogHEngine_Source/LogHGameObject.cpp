@@ -7,6 +7,7 @@ namespace LogH
 {
 	GameObject::GameObject()
 		: State(E_State::Active)
+		, MComponents{}
 	{
 		MComponents.resize((UINT)Enums::E_ComponentType::End);
 		//AddComponent<RenderComponent>(L"Render");

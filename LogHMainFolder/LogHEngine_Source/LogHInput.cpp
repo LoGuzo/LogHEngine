@@ -6,7 +6,7 @@ extern LogH::Application App;
 namespace LogH
 {
 	vector<Input::Key> Input::Keys = {};
-	Math::Vector2 MousePosition = Math::Vector2::One;
+	Math::Vector2 Input::MousePosition = Math::Vector2::Zero;
 
 	int ASCII[(int)E_KeyCode::End] =
 	{

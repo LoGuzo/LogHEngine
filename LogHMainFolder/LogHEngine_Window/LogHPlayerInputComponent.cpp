@@ -16,7 +16,6 @@ namespace LogH
 
 	PlayerInputComponent::~PlayerInputComponent()
 	{
-		SAFE_DELETE(MyAnimator);
 	}
 
 	void PlayerInputComponent::Initialize()
@@ -96,26 +95,26 @@ namespace LogH
 		const float DeltaTime = Time::GetDeltaTime();
 
 		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
-		Vector2 pos = MyTransform->GetPosition();
+		Vector2 Pos = MyTransform->GetPosition();
 
 		if (Input::GetKeyPressed(E_KeyCode::Left))
 		{
-			pos.x -= Speed * DeltaTime;
+			Pos += Vector2::Left * (Speed * DeltaTime);
 		}
 		else if (Input::GetKeyPressed(E_KeyCode::Right))
 		{
-			pos.x += Speed * DeltaTime;
+			Pos += Vector2::Right * (Speed * DeltaTime);
 		}
 		else if (Input::GetKeyPressed(E_KeyCode::Up))
 		{
-			pos.y -= Speed * DeltaTime;
+			Pos += Vector2::Up * (Speed * DeltaTime);
 		}
 		else if (Input::GetKeyPressed(E_KeyCode::Down))
 		{
-			pos.y += Speed * DeltaTime;
+			Pos += Vector2::Down * (Speed * DeltaTime);
 		}
 
-		MyTransform->SetPosition(pos);
+		MyTransform->SetPosition(Pos);
 
 		if (Input::GetKeyUp(E_KeyCode::Left))
 		{

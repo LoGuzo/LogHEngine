@@ -18,8 +18,6 @@ namespace LogH
 
 	MushScriptComponent::~MushScriptComponent()
 	{
-		SAFE_DELETE(MyAnimator);
-		SAFE_DELETE(MyTransform);
 	}
 
 	void MushScriptComponent::Initialize()
@@ -80,10 +78,10 @@ namespace LogH
 		switch (Direction)
 		{
 		case E_Direction::Left:
-			Pos.x -= Speed * DeltaTime;
+			Pos += Vector2::Left * (Speed * DeltaTime);
 			break;
 		case E_Direction::Right:
-			Pos.x += Speed * DeltaTime;
+			Pos += Vector2::Right * (Speed * DeltaTime);
 			break;
 		default:
 			break;

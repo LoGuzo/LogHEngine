@@ -27,8 +27,10 @@ namespace LogH :: Graphics
         HDC GetHdc() { return MHdc; }
         E_TextureType GetTextureType() { return Type; }
         Gdiplus::Image* GetImage() { return MImg; }
+        bool IsAlpha() { return bAlpha; }
 
     private:
+        bool bAlpha;
         E_TextureType Type;
         Gdiplus::Image* MImg;
         HBITMAP MBitmap;

@@ -11,9 +11,6 @@ namespace LogH
 
 	BaseCharacter::~BaseCharacter()
 	{
-		SAFE_DELETE(CharTexture);
-		SAFE_DELETE(FlipTexture);
-		SAFE_DELETE(MyAnimator);
 	}
 
 	void BaseCharacter::Initialize()

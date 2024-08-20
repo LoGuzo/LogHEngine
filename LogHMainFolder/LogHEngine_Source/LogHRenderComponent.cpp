@@ -15,7 +15,6 @@ namespace LogH
 
 	RenderComponent::~RenderComponent()
 	{
-		SAFE_DELETE(MyTexture);
 	}
 
 	void RenderComponent::Initialize()

@@ -12,7 +12,6 @@ namespace LogH
 
     Component::~Component()
     {
-        SAFE_DELETE(Owner);
     }
 
     void Component::Initialize()

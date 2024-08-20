@@ -22,9 +22,6 @@ namespace LogH
 
 	PlayScene::~PlayScene()
 	{
-		SAFE_DELETE(MyPlayerCharacter);
-		SAFE_DELETE(EnemyMush);
-		SAFE_DELETE(BackGroundObj);
 	}
 
 	void PlayScene::Initialize()
