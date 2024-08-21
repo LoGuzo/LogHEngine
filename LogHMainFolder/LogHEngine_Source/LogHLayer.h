@@ -17,6 +17,7 @@ namespace LogH
 		virtual void Destory();
 
 		void AddGameObject(GameObject* _GameObject);
+		const vector<GameObject*> GetGameObjects() { return GameObjects; }
 
 	private:
 		vector<GameObject*> GameObjects;

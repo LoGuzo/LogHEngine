@@ -4,8 +4,9 @@ namespace LogH :: Enums
 {
 	enum class E_ComponentType
 	{
-		Input,
 		Transform,
+		Colider,
+		Input,
 		Renderer,
 		Animator,
 		Camera,
@@ -17,8 +18,8 @@ namespace LogH :: Enums
 		None,
 		BackGreound,
 		//Tree,
-		Character,
 		Player,
+		Enemy,
 		Particle,
 		Max = 16,
 	};

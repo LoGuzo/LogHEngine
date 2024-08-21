@@ -1,11 +1,16 @@
 #include "MushRoom.h"
 #include "LogHMushScriptComponent.h"
+#include "LogHBoxComponent2D.h"
 
 namespace LogH
 {
 	MushRoom::MushRoom()
 	{
 		AddComponent<MushScriptComponent>(L"ScriptComponent");
+
+		BoxComponent2D* Collision = GetComponent<BoxComponent2D>();
+		Collision->SetRoot(Vector2(-8.f, -16.f));
+		Collision->SetSize(Vector2(16.f, 16.f));
 	}
 
 	MushRoom::~MushRoom()

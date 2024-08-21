@@ -33,10 +33,10 @@ namespace LogH
 		Renderer::MainCamera = CameraComp;*/
 
 		MyPlayerCharacter = Object::Instantiate<Mario>
-			(E_LayerType::Character, Vector2(50.f, 50.f));
+			(E_LayerType::Player, Vector2(50.f, 50.f));
 
 		EnemyMush = Object::Instantiate<MushRoom>
-			(E_LayerType::Character, Vector2(200.f, 200.f));
+			(E_LayerType::Enemy, Vector2(200.f, 200.f));
 
 		BackGroundObj = Object::Instantiate<GameObject>
 			(E_LayerType::BackGreound, Vector2(0.f, 0.f));

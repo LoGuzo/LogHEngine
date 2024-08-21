@@ -1,4 +1,5 @@
 #include "LogHScene.h"
+#include "LogHCollisionManager.h"
 
 namespace LogH
 {
@@ -16,6 +17,8 @@ namespace LogH
 
 	void Scene::Initialize()
 	{
+		CollisionManager::CollisionLayerCheck(E_LayerType::Player, E_LayerType::Enemy, true);
+
 		for (Layer* layer : Layers)
 		{
 			if (layer == nullptr)

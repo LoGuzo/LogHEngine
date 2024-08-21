@@ -2,6 +2,7 @@
 #include "LogHInput.h"
 #include "LogHTime.h"
 #include "LogHSceneManager.h"
+#include "LogHCollisionManager.h"
 
 namespace LogH
 {
@@ -26,6 +27,9 @@ namespace LogH
 		AdjustWindeowRect(Hwnd, Width, Height);
 		CreateBuffer(Width, Height);
 		InitializeEtc();
+
+		CollisionManager::Initialize();
+		SceneManager::Initialize();
 	}
 
 	void Application::Run()
@@ -41,11 +45,13 @@ namespace LogH
 	{
 		Input::Update();
 		Time::Update();
+		CollisionManager::Update();
 		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -54,6 +60,7 @@ namespace LogH
 		ClearRenderTarget();
 
 		Time::Render(MBackHdc);
+		CollisionManager::Render(MBackHdc);
 		SceneManager::Render(MBackHdc);
 
 		CopyRenderTarget(MBackHdc, MHdc);

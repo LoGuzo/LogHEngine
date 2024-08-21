@@ -4,11 +4,18 @@
 
 class Component;
 
+namespace LogH::object
+{
+	void Destroy(GameObject* _GameObject);
+}
+
 namespace LogH
 {
 	class GameObject
 	{
 	public:
+		friend void object::Destroy(GameObject* Obj);
+
 		enum class E_State
 		{
 			Active,
@@ -33,7 +40,11 @@ namespace LogH
 
 		E_State GetActive() { return State; }
 		void SetActive(bool Power);
+		bool IsActive() { return State == E_State::Active; }
 
+		bool IsDead() { return State == E_State::Dead; }
+		
+	private:
 		void Death() { State = E_State::Dead; }
 
 	private:

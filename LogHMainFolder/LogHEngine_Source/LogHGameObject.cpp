@@ -1,7 +1,15 @@
 #include "LogHGameObject.h"
 #include "LogHTransformComponent.h"
-
 #include "LogHRenderComponent.h"
+
+namespace LogH::object
+{
+	void Destroy(GameObject* _GameObject)
+	{
+		if (_GameObject != nullptr)
+			_GameObject->Death();
+	}
+}
 
 namespace LogH
 {

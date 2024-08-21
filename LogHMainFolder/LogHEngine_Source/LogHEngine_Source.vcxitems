@@ -14,12 +14,15 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHBoxComponent2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Define.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHActor.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHCameraComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHCharacter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHCircleComponent2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHEnum.h" />
@@ -36,17 +39,21 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResourceManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHShapeComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTransformComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHRenderComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHBoxComponent2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHCameraComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHCharacter.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHCircleComponent2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHGameObject.cpp" />
@@ -61,6 +68,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResourceManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHShapeComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTransformComponent.cpp" />

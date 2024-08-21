@@ -1,10 +1,11 @@
 #include "LogHCharacter.h"
+#include "LogHBoxComponent2D.h"
 
 namespace LogH
 {
 	Character::Character()
 	{
-
+		AddComponent<BoxComponent2D>(L"Collision");
 	}
 
 	Character::~Character()

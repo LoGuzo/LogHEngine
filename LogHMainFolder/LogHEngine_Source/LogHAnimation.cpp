@@ -89,6 +89,7 @@ namespace LogH
 					, sprite.Size.x, sprite.Size.y
 					, RGB(255, 0, 255));
 			}
+
 		}
 		else if (type == Texture::E_TextureType::Png)
 		{
