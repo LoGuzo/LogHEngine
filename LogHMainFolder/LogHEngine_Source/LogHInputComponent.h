@@ -3,6 +3,8 @@
 
 namespace LogH
 {
+	class ShapeComponent;
+
     class InputComponent : public Component
     {
 	public:
@@ -13,6 +15,10 @@ namespace LogH
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render(HDC Hdc) override;
+
+		virtual void OnCollisionOnEnter(ShapeComponent* Other);
+		virtual void OnCollisionOnStay(ShapeComponent* Other);
+		virtual void OnCollisionOnExit(ShapeComponent* Other);
 
 	private:
     };

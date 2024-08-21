@@ -5,7 +5,7 @@
 namespace LogH
 {
 	BoxComponent2D::BoxComponent2D()
-		:ShapeComponent()
+		:ShapeComponent(Enums::E_ColliderType::Rect2D)
 	{
 	}
 
@@ -30,14 +30,18 @@ namespace LogH
 		TransformComponent* Tc = GetOwner()->GetComponent<TransformComponent>();
 		Vector2 Pos = Tc->GetPosition();
 
-		Vector2 Root = GetRoot();
+		Vector2 root = GetRoot();
 
 		HBRUSH TransparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
 		HBRUSH OldBrush = (HBRUSH)SelectObject(Hdc, TransparentBrush);
 
-		Rectangle(Hdc, Pos.x + Root.x, Pos.y + Root.y, Pos.x + Root.x + Size.x, Pos.y + Root.y + Size.y);
+		HPEN greenPen = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
+		HPEN oldPen = (HPEN)SelectObject(Hdc, greenPen);
+
+		Rectangle(Hdc, Pos.x + root.x, Pos.y + root.y, Pos.x + root.x + GetSize().x, Pos.y + root.y + GetSize().y);
 
 		SelectObject(Hdc, OldBrush);
-		DeleteObject(TransparentBrush);
+		SelectObject(Hdc, oldPen);
+		DeleteObject(greenPen);
 	}
 }

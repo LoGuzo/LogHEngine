@@ -133,6 +133,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="LogHMushScriptComponent.h" />
+    <ClInclude Include="LogHTile.h" />
+    <ClInclude Include="LogHToolScene.h" />
     <ClInclude Include="MushRoom.h" />
     <ClInclude Include="LogHBaseCharacter.h" />
     <ClInclude Include="LogHEnemyCharacter.h" />
@@ -147,6 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHMushScriptComponent.cpp" />
+    <ClCompile Include="LogHTile.cpp" />
+    <ClCompile Include="LogHToolScene.cpp" />
     <ClCompile Include="MushRoom.cpp" />
     <ClCompile Include="LogHBaseCharacter.cpp" />
     <ClCompile Include="LogHEndScene.cpp" />

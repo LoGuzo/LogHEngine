@@ -5,7 +5,7 @@ namespace LogH :: Enums
 	enum class E_ComponentType
 	{
 		Transform,
-		Colider,
+		Collider,
 		Input,
 		Renderer,
 		Animator,
@@ -17,6 +17,7 @@ namespace LogH :: Enums
 	{
 		None,
 		BackGreound,
+		Tile,
 		//Tree,
 		Player,
 		Enemy,
@@ -38,5 +39,13 @@ namespace LogH :: Enums
 		Player,
 		Enemy,
 		Npc,
+		End,
+	};
+
+	enum class E_ColliderType
+	{
+		Circle2D,
+		Rect2D,
+		End,
 	};
 }

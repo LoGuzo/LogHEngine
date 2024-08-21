@@ -41,6 +41,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHShapeComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTexture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHTilemapRender.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTransformComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHRenderComponent.h" />
@@ -70,6 +71,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHShapeComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHTilemapRender.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTransformComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHRenderComponent.cpp" />

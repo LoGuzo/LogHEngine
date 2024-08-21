@@ -78,7 +78,13 @@ namespace LogH
 
 	void Application::ClearRenderTarget()
 	{
+		HBRUSH GrayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
+		HBRUSH OldBrush = (HBRUSH)SelectObject(MBackHdc, GrayBrush);
+
 		Rectangle(MBackHdc, -1, -1, 1601, 901);
+
+		(HBRUSH)SelectObject(MBackHdc, OldBrush);
+		DeleteObject(GrayBrush);
 	}
 
 	void Application::CopyRenderTarget(HDC Src, HDC Dest)

@@ -3,6 +3,7 @@
 #include "LogHInput.h"
 #include "LogHTime.h"
 #include "LogHTransformComponent.h"
+#include "LogHShapeComponent.h"
 #include "LogHGameObject.h"
 
 namespace LogH
@@ -54,6 +55,18 @@ namespace LogH
 	}
 
 	void PlayerInputComponent::Render(HDC Hdc)
+	{
+	}
+
+	void PlayerInputComponent::OnCollisionOnEnter(ShapeComponent* Other)
+	{
+	}
+
+	void PlayerInputComponent::OnCollisionOnStay(ShapeComponent* Other)
+	{
+	}
+
+	void PlayerInputComponent::OnCollisionOnExit(ShapeComponent* Other)
 	{
 	}
 

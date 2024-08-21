@@ -27,10 +27,10 @@ namespace LogH
 	void PlayScene::Initialize()
 	{
 		GameObject* CameraObj = Object::Instantiate<GameObject>
-			(E_LayerType::None, Vector2(428.f, 440.f));
+			(E_LayerType::None, Vector2(256.f, 256.f));
 
-		/*CameraComponent* CameraComp = CameraObj->AddComponent<CameraComponent>(L"Camera");
-		Renderer::MainCamera = CameraComp;*/
+		CameraComponent* CameraComp = CameraObj->AddComponent<CameraComponent>(L"Camera");
+		//Renderer::MainCamera = CameraComp;
 
 		MyPlayerCharacter = Object::Instantiate<Mario>
 			(E_LayerType::Player, Vector2(50.f, 50.f));

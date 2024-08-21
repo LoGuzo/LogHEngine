@@ -28,4 +28,13 @@ namespace LogH
 	void InputComponent::Render(HDC Hdc)
 	{
 	}
+	void InputComponent::OnCollisionOnEnter(ShapeComponent* Other)
+	{
+	}
+	void InputComponent::OnCollisionOnStay(ShapeComponent* Other)
+	{
+	}
+	void InputComponent::OnCollisionOnExit(ShapeComponent* Other)
+	{
+	}
 }

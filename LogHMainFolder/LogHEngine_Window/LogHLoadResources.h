@@ -15,6 +15,8 @@ namespace LogH
 		ResourceManager::Load<Graphics::Texture>(L"Enemy", L"..\\Resources\\Img\\Character\\Enemy.png");
 		ResourceManager::Load<Graphics::Texture>(L"EnemyFlip", L"..\\Resources\\Img\\Character\\Flip_Enemy.png");
 		
+		ResourceManager::Load<Graphics::Texture>(L"TileMap", L"..\\Resources\\Img\\TileMap\\TileMap.bmp");
+
 		ResourceManager::Load<Graphics::Texture>(L"Title", L"..\\Resources\\Img\\Title\\MarioMap1.png");
 	}
 }

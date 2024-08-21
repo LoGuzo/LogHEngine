@@ -9,8 +9,8 @@ namespace LogH
 		AddComponent<PlayerInputComponent>(L"InputComponent");
 
 		BoxComponent2D* Collision = GetComponent<BoxComponent2D>();
-		Collision->SetRoot(Vector2(-9.f, -16.f));
-		Collision->SetSize(Vector2(18.f, 32.f));
+		Collision->SetRoot(Vector2(-10.f, -18.f));
+		Collision->SetSize(Vector2(22.f, 36.f));
 	}
 
 	Mario::~Mario()

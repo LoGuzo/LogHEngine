@@ -14,10 +14,7 @@ namespace LogH
 		virtual void LateUpdate() override;
 		virtual void Render(HDC Hdc) override;
 
-		Vector2 GetSize() { return Size; }
-		void SetSize(Vector2 _Size) { Size = _Size; }
-
 	private:
-		Vector2 Size;
+
 	};
 }

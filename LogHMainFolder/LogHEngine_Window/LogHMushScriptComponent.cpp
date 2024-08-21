@@ -3,6 +3,7 @@
 #include "LogHInput.h"
 #include "LogHTime.h"
 #include "LogHTransformComponent.h"
+#include "LogHShapeComponent.h"
 #include "LogHGameObject.h"
 
 namespace LogH
@@ -32,7 +33,7 @@ namespace LogH
 			MyAnimator = GetOwner()->GetComponent<Animator>();
 			MyAnimator->PlayAnimation(L"Idle", false);
 		}
-		FSM();
+		//FSM();
 	}
 
 	void MushScriptComponent::LateUpdate()
@@ -40,6 +41,18 @@ namespace LogH
 	}
 
 	void MushScriptComponent::Render(HDC Hdc)
+	{
+	}
+
+	void MushScriptComponent::OnCollisionOnEnter(ShapeComponent* Other)
+	{
+	}
+
+	void MushScriptComponent::OnCollisionOnStay(ShapeComponent* Other)
+	{
+	}
+
+	void MushScriptComponent::OnCollisionOnExit(ShapeComponent* Other)
 	{
 	}
 

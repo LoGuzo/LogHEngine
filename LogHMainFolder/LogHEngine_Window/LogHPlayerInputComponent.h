@@ -28,6 +28,10 @@ namespace LogH
 		virtual void LateUpdate() override;
 		virtual void Render(HDC Hdc) override;
 
+		virtual void OnCollisionOnEnter(ShapeComponent* Other) override;
+		virtual void OnCollisionOnStay(ShapeComponent* Other) override;
+		virtual void OnCollisionOnExit(ShapeComponent* Other) override;
+
 	private:
 		void IdleState();
 		void WalkState();

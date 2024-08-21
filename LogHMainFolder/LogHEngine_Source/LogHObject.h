@@ -11,7 +11,7 @@ namespace LogH::Object
 	template<typename T>
 	static T* Instantiate(Enums::E_LayerType Type)
 	{
-		T* gameObject = new GameObject();
+		T* gameObject = new T();
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(Type);
 		layer->AddGameObject(gameObject);
@@ -31,10 +31,5 @@ namespace LogH::Object
 		tr->SetPosition(Position);
 
 		return gameObject;
-	}
-
-	static void Destroy(GameObject* Object)
-	{
-		Object->Death();
 	}
 }

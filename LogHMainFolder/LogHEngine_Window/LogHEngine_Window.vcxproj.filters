@@ -60,6 +60,10 @@
     <ClInclude Include="LogHMushScriptComponent.h">
       <Filter>InputComponent</Filter>
     </ClInclude>
+    <ClInclude Include="LogHToolScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LogHTile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHPlayScene.cpp">
@@ -92,5 +96,9 @@
     <ClCompile Include="LogHMushScriptComponent.cpp">
       <Filter>InputComponent</Filter>
     </ClCompile>
+    <ClCompile Include="LogHToolScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LogHTile.cpp" />
   </ItemGroup>
 </Project>

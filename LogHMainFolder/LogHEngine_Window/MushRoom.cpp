@@ -9,8 +9,8 @@ namespace LogH
 		AddComponent<MushScriptComponent>(L"ScriptComponent");
 
 		BoxComponent2D* Collision = GetComponent<BoxComponent2D>();
-		Collision->SetRoot(Vector2(-8.f, -16.f));
-		Collision->SetSize(Vector2(16.f, 16.f));
+		Collision->SetRoot(Vector2(-10.f, -17.f));
+		Collision->SetSize(Vector2(20.f, 20.f));
 	}
 
 	MushRoom::~MushRoom()
