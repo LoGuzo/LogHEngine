@@ -77,6 +77,7 @@ namespace LogH
 	}
 	void Scene::OnExit()
 	{
+		CollisionManager::Clear();
 	}
 
 	void Scene::AddGameObject(GameObject* _GameObject, const E_LayerType Type)

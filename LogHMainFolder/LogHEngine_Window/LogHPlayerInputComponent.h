@@ -38,6 +38,8 @@ namespace LogH
 		void DieState();
 		void AttackState();
 
+		void PlayerKeyUP();
+
 	private:
 		E_State State;
 		E_Direction Direction;

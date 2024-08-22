@@ -1,5 +1,6 @@
 #include "MushRoom.h"
 #include "LogHMushScriptComponent.h"
+#include "LogHTransformComponent.h"
 #include "LogHBoxComponent2D.h"
 
 namespace LogH
@@ -8,9 +9,14 @@ namespace LogH
 	{
 		AddComponent<MushScriptComponent>(L"ScriptComponent");
 
+		TransformComponent* Transform = GetComponent<TransformComponent>();
+		Transform->SetScale(Vector2(1.5f, 1.5f));
+
+		Vector2 scale = Transform->GetScale();
+
 		BoxComponent2D* Collision = GetComponent<BoxComponent2D>();
-		Collision->SetRoot(Vector2(-10.f, -17.f));
-		Collision->SetSize(Vector2(20.f, 20.f));
+		Collision->SetRoot(Vector2(-15.f, -25.f));
+		Collision->SetSize(Vector2(20.f, 20.f) * scale);
 	}
 
 	MushRoom::~MushRoom()

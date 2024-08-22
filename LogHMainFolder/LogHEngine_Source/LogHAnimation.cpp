@@ -70,8 +70,8 @@ namespace LogH
 				func.AlphaFormat = AC_SRC_ALPHA;
 				func.SourceConstantAlpha = 255;
 
-				AlphaBlend(Hdc, Pos.x - (sprite.Size.x / 2.f) + sprite.Root.x
-					, Pos.y - (sprite.Size.y / 2.f) + sprite.Root.y
+				AlphaBlend(Hdc, Pos.x - (sprite.Size.x * Scale.x / 2.f) + sprite.Root.x
+					, Pos.y - (sprite.Size.y * Scale.y / 2.f) + sprite.Root.y
 					, sprite.Size.x * Scale.x, sprite.Size.y * Scale.y
 					, ImgHdc, sprite.LeftTop.x, sprite.LeftTop.y
 					, sprite.Size.x, sprite.Size.y
@@ -79,12 +79,12 @@ namespace LogH
 			}
 			else
 			{
-				TransparentBlt(Hdc, Pos.x - (sprite.Size.x / 2.f) + sprite.Root.x
-					, Pos.y - (sprite.Size.y / 2.f) + sprite.Root.y
+				TransparentBlt(Hdc, Pos.x - (sprite.Size.x * Scale.x / 2.f) + sprite.Root.x
+					, Pos.y - (sprite.Size.y * Scale.y / 2.f) + sprite.Root.y
 					, sprite.Size.x * Scale.x, sprite.Size.y * Scale.y
 					, ImgHdc, sprite.LeftTop.x, sprite.LeftTop.y
 					, sprite.Size.x, sprite.Size.y
-					, RGB(255, 0, 255));
+					, RGB(147, 187, 236));
 			}
 
 		}
@@ -99,10 +99,14 @@ namespace LogH
 			//graphics.RotateTransform(Rotation);
 			//graphics.TranslateTransform(-Pos.x, Pos.y);
 
+			float a = Pos.x - (sprite.Size.x * Scale.x / 2.f);
+			float b = sprite.Size.x * Scale.x;
+
 			graphics.DrawImage(MyTexture->GetImage()
 				,Gdiplus::Rect
 				{
-					(INT)(Pos.x - (sprite.Size.x / 2.f)), (INT)(Pos.y - (sprite.Size.y / 2.f))
+					(INT)(Pos.x - (sprite.Size.x * Scale.x / 2.f) + sprite.Root.x)
+					, (INT)(Pos.y - (sprite.Size.y * Scale.y / 2.f) + sprite.Root.x)
 					, (INT)(sprite.Size.x * Scale.x), (INT)(sprite.Size.y * Scale.y)
 				}
 				, sprite.LeftTop.x

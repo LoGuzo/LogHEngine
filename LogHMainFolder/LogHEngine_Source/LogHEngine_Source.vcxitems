@@ -37,6 +37,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHResourceManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHRigidbodyComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHShapeComponent.h" />
@@ -67,6 +68,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHResourceManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHRigidbodyComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHShapeComponent.cpp" />

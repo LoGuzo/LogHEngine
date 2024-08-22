@@ -53,9 +53,9 @@ namespace LogH
 
 				Tile* tile = Object::Instantiate<Tile>(E_LayerType::Tile);
 				TilemapRender* Tmr = tile->AddComponent<TilemapRender>(L"TileMapRender");
-
 				Tmr->SetTexture(ResourceManager::Find<Graphics::Texture>(L"TileMap"));
 				Tmr->SetIndex(TilemapRender::SelectedIndex);
+				
 				int CurX = IdxX * TilemapRender::FinalTileSize.x;
 				int CurY = IdxY * TilemapRender::FinalTileSize.x;
 
@@ -79,7 +79,7 @@ namespace LogH
 	{
 		Scene::Render(MHdc);
 
-		for (size_t i = 0; i < 50; i++)
+		for (size_t i = 0; i < 100; i++)
 		{
 			Vector2 Pos = Renderer::MainCamera->CalculatePosition(
 				Vector2(TilemapRender::FinalTileSize.x * i, 0.f));
@@ -88,7 +88,7 @@ namespace LogH
 			LineTo(MHdc, Pos.x, 1000);
 		}
 
-		for (size_t i = 0; i < 50; i++)
+		for (size_t i = 0; i < 21; i++)
 		{
 
 			Vector2 Pos = Renderer::MainCamera->CalculatePosition(
@@ -143,6 +143,9 @@ namespace LogH
 			Vector2 sourceIndex = Tmr->GetIndex();
 			Vector2 position = Tc->GetPosition();
 
+			if (sourceIndex.x == -1 || sourceIndex.y == -1)
+				continue;
+
 			int x = sourceIndex.x;
 			fwrite(&x, sizeof(int), 1, pFile);
 			int y = sourceIndex.y;
@@ -176,8 +179,11 @@ namespace LogH
 		ofn.lpstrInitialDir = NULL;
 		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
 
+
 		if (false == GetOpenFileName(&ofn))
 			return;
+
+		Tiles.clear();
 
 		FILE* pFile = nullptr;
 		_wfopen_s(&pFile, szFilePath, L"rb");
@@ -199,6 +205,9 @@ namespace LogH
 				break;
 			if (fread(&PosY, sizeof(int), 1, pFile) == NULL)
 				break;
+
+			if (IdxX == -1 || IdxY == -1)
+				continue;
 
 			Tile* tile = Object::Instantiate<Tile>(E_LayerType::Tile, Vector2(PosX, PosY));
 			TilemapRender* Tmr = tile->AddComponent<TilemapRender>(L"TileMapRender");
@@ -224,8 +233,8 @@ LRESULT CALLBACK WndTileMapProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		LogH::Math::Vector2 mousePosition;
 		mousePosition.x = mousePos.x;
 		mousePosition.y = mousePos.y;
-		int idxX = mousePosition.x / LogH::TilemapRender::FinalTileSize.x / 3;
-		int idxY = mousePosition.y / LogH::TilemapRender::FinalTileSize.y / 3;
+		int idxX = mousePosition.x / LogH::TilemapRender::FinalTileSize.x / 2;
+		int idxY = mousePosition.y / LogH::TilemapRender::FinalTileSize.y / 2;
 		LogH::TilemapRender::SelectedIndex = LogH::Math::Vector2(idxX, idxY);
 	}
 	break;
@@ -238,7 +247,8 @@ LRESULT CALLBACK WndTileMapProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 			= LogH::ResourceManager::Find<LogH::Graphics::Texture>(L"TileMap");
 
 		TransparentBlt(hdc, 0, 0
-			, texture->GetWidth() * 3, texture->GetHeight() * 3
+			, texture->GetWidth() * 3
+			, texture->GetHeight() * 3
 			, texture->GetHdc(), 0, 0, texture->GetWidth(), texture->GetHeight()
 			, RGB(255, 0, 255));
 

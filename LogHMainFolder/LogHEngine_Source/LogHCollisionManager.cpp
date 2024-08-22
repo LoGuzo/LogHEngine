@@ -36,6 +36,12 @@ namespace LogH
 	{
 	}
 
+	void CollisionManager::Clear()
+	{
+		CollisionMap.clear();
+		CollisionLayerMatrix->reset();
+	}
+
 	void CollisionManager::CollisionLayerCheck(E_LayerType Left, E_LayerType Right, bool Enable)
 	{
 		int row = 0;

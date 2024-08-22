@@ -6,6 +6,7 @@ namespace LogH :: Enums
 	{
 		Transform,
 		Collider,
+		Rigidbody,
 		Input,
 		Renderer,
 		Animator,

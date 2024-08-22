@@ -24,6 +24,7 @@ namespace LogH
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC MHdc);
+		static void Clear();
 
 		static void CollisionLayerCheck(E_LayerType Left, E_LayerType Right, bool Enable);
 		static void LayerCollision(class Scene* _Scene, E_LayerType Left, E_LayerType Right);

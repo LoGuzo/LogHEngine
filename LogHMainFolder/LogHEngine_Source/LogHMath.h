@@ -50,6 +50,11 @@ namespace LogH::Math
 
 		}
 
+		Vector2 operator - ()
+		{
+			return Vector2(-x, -y);
+		}
+
 		Vector2 operator - (Vector2 Other)
 		{
 			return Vector2(x - Other.x, y - Other.y);
@@ -62,7 +67,26 @@ namespace LogH::Math
 
 		void operator += (Vector2 Other)
 		{
-			x += Other.x, y += Other.y;
+			x += Other.x;
+			y += Other.y;
+		}
+
+		void operator -= (Vector2 Other)
+		{
+			x -= Other.x;
+			y -= Other.y;
+		}
+
+		void operator *= (Vector2 Other)
+		{
+			x *= Other.x;
+			y *= Other.y;
+		}
+
+		void operator *= (float value)
+		{
+			x *= value;
+			y *= value;
 		}
 
 		Vector2 operator * (float value)
@@ -78,6 +102,11 @@ namespace LogH::Math
 		Vector2 operator / (float value)
 		{
 			return Vector2(x / value, y / value);
+		}
+
+		bool operator == (Vector2 Other)
+		{
+			return (x == Other.x) && (y == Other.y);
 		}
 
 		void Clear()

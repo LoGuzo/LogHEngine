@@ -1,5 +1,6 @@
 #include "Mario.h"
 #include "LogHPlayerInputComponent.h"
+#include "LogHTransformComponent.h"
 #include "LogHBoxComponent2D.h"
 
 namespace LogH
@@ -8,9 +9,14 @@ namespace LogH
 	{
 		AddComponent<PlayerInputComponent>(L"InputComponent");
 
+		TransformComponent* Transform = GetComponent<TransformComponent>();
+		Transform->SetScale(Vector2(1.5f, 1.5f));
+
+		Vector2 scale = Transform->GetScale();
+
 		BoxComponent2D* Collision = GetComponent<BoxComponent2D>();
-		Collision->SetRoot(Vector2(-10.f, -18.f));
-		Collision->SetSize(Vector2(22.f, 36.f));
+		Collision->SetRoot(Vector2(-14.f, -14.f));
+		Collision->SetSize(Vector2(20.f, 20.f) * scale);
 	}
 
 	Mario::~Mario()
@@ -40,27 +46,27 @@ namespace LogH
 	void Mario::AddIdleAnim()
 	{
 		MyAnimator->CreateAnimation(L"RightIdle", CharTexture
-			, Vector2(1.f, 52.f), Vector2(32.f, 32.f), Vector2::Zero, 1, 0.1f);
+			, Vector2(1.f, 22.f), Vector2(32.f, 16.f), Vector2::Zero, 1, 0.1f);
 		MyAnimator->CreateAnimation(L"LeftIdle", FlipTexture
-			, Vector2(1.f, 52.f), Vector2(32.f, 32.f), Vector2::Zero, 1, 0.1f);
+			, Vector2(1.f, 22.f), Vector2(32.f, 16.f), Vector2::Zero, 1, 0.1f);
 	}
 
 	void Mario::AddMoveAnim()
 	{
 		MyAnimator->CreateAnimation(L"RightMove", CharTexture
-			, Vector2(75.f, 52.f), Vector2(32.f, 32.f), Vector2::Zero, 3, 0.1f);
+			, Vector2(75.f, 22.f), Vector2(32.f, 16.f), Vector2::Zero, 3, 0.1f);
 		MyAnimator->CreateAnimation(L"LeftMove", FlipTexture
-			, Vector2(75.f, 52.f), Vector2(32.f, 32.f), Vector2::Zero, 3, 0.1f);
+			, Vector2(75.f, 22.f), Vector2(32.f, 16.f), Vector2::Zero, 3, 0.1f);
 
 		MyAnimator->CreateAnimation(L"RightJump", CharTexture
-			, Vector2(215.f, 52.f), Vector2(32.f, 32.f), Vector2::Zero, 2, 0.1f);
+			, Vector2(215.f, 22.f), Vector2(32.f, 16.f), Vector2::Zero, 2, 0.1f);
 		MyAnimator->CreateAnimation(L"LeftJump", FlipTexture
-			, Vector2(215.f, 52.f), Vector2(32.f, 32.f), Vector2::Zero, 2, 0.1f);
+			, Vector2(215.f, 22.f), Vector2(32.f, 16.f), Vector2::Zero, 2, 0.1f);
 
 		MyAnimator->CreateAnimation(L"RightCrounch", CharTexture
-			, Vector2(38.f, 52.f), Vector2(32.f, 32.f), Vector2::Zero, 1, 0.1f);
+			, Vector2(38.f, 22.f), Vector2(32.f, 16.f), Vector2::Zero, 1, 0.1f);
 		MyAnimator->CreateAnimation(L"LeftCrounch", FlipTexture
-			, Vector2(38.f, 52.f), Vector2(32.f, 32.f), Vector2::Zero, 1, 0.1f);
+			, Vector2(38.f, 22.f), Vector2(32.f, 16.f), Vector2::Zero, 1, 0.1f);
 	}
 
 	void Mario::AddAttackAnim()

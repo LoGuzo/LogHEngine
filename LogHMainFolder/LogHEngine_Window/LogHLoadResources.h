@@ -9,11 +9,11 @@ namespace LogH
 	{
 		ResourceManager::Load<Graphics::Texture>(L"BackGround", L"..\\Resources\\Img\\map\\MarioMap1.png");
 
-		ResourceManager::Load<Graphics::Texture>(L"Mario", L"..\\Resources\\Img\\Character\\Mario.png");
-		ResourceManager::Load<Graphics::Texture>(L"MarioFlip", L"..\\Resources\\Img\\Character\\Flip_Mario.png");
+		ResourceManager::Load<Graphics::Texture>(L"Mario", L"..\\Resources\\Img\\Character\\Mario1.bmp");
+		ResourceManager::Load<Graphics::Texture>(L"MarioFlip", L"..\\Resources\\Img\\Character\\Flip_Mario1.bmp");
 
-		ResourceManager::Load<Graphics::Texture>(L"Enemy", L"..\\Resources\\Img\\Character\\Enemy.png");
-		ResourceManager::Load<Graphics::Texture>(L"EnemyFlip", L"..\\Resources\\Img\\Character\\Flip_Enemy.png");
+		ResourceManager::Load<Graphics::Texture>(L"Enemy", L"..\\Resources\\Img\\Character\\Enemy1.bmp");
+		ResourceManager::Load<Graphics::Texture>(L"EnemyFlip", L"..\\Resources\\Img\\Character\\Flip_Enemy1.bmp");
 		
 		ResourceManager::Load<Graphics::Texture>(L"TileMap", L"..\\Resources\\Img\\TileMap\\TileMap.bmp");
 

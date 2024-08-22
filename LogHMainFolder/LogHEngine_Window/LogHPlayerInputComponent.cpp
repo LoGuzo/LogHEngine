@@ -3,6 +3,7 @@
 #include "LogHInput.h"
 #include "LogHTime.h"
 #include "LogHTransformComponent.h"
+#include "LogHRigidbodyComponent.h"
 #include "LogHShapeComponent.h"
 #include "LogHGameObject.h"
 
@@ -110,7 +111,9 @@ namespace LogH
 		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
 		Vector2 Pos = MyTransform->GetPosition();
 
-		if (Input::GetKeyPressed(E_KeyCode::Left))
+		RigidbodyComponent* Rc = GetOwner()->GetComponent<RigidbodyComponent>();
+
+		/*if (Input::GetKeyPressed(E_KeyCode::Left))
 		{
 			Pos += Vector2::Left * (Speed * DeltaTime);
 		}
@@ -127,8 +130,44 @@ namespace LogH
 			Pos += Vector2::Down * (Speed * DeltaTime);
 		}
 
-		MyTransform->SetPosition(Pos);
+		MyTransform->SetPosition(Pos);*/
 
+		if (Input::GetKeyPressed(E_KeyCode::Left))
+		{
+			Rc->SetForce(Vector2(-100.f, 0.f));
+		}
+		else if (Input::GetKeyPressed(E_KeyCode::Right))
+		{
+			Rc->SetForce(Vector2(100.f, 0.f));
+		}
+		else if (Input::GetKeyPressed(E_KeyCode::Up))
+		{
+			Vector2 velocity = Rc->GetVelocity();
+			velocity.y = -500.f;
+			Rc->SetVelocity(velocity);
+			Rc->SetIsGround(false);
+		}
+		else if (Input::GetKeyPressed(E_KeyCode::Down))
+		{
+			Rc->SetForce(Vector2(0.f, 100.f));
+		}
+
+		PlayerKeyUP();
+
+	}
+
+	void PlayerInputComponent::DieState()
+	{
+
+	}
+
+	void PlayerInputComponent::AttackState()
+	{
+		//이벤트 사용방법
+		//MyAnimator->GetCompleteEvent(L"Attack") = bind(&PlayerInputComponent::Attack, this);
+	}
+	void PlayerInputComponent::PlayerKeyUP()
+	{
 		if (Input::GetKeyUp(E_KeyCode::Left))
 		{
 			State = E_State::Idle;
@@ -157,16 +196,5 @@ namespace LogH
 			else
 				MyAnimator->PlayAnimation(L"LeftIdle", false);
 		}
-	}
-
-	void PlayerInputComponent::DieState()
-	{
-
-	}
-
-	void PlayerInputComponent::AttackState()
-	{
-		//이벤트 사용방법
-		//MyAnimator->GetCompleteEvent(L"Attack") = bind(&PlayerInputComponent::Attack, this);
 	}
 }

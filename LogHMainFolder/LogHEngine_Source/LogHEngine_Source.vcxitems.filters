@@ -64,10 +64,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)LogHAnimation.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)LogHAnimator.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHBoxComponent2D.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
@@ -77,9 +73,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHShapeComponent.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)LogHCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)LogHTilemapRender.cpp">
       <Filter>Component\TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHCollisionManager.cpp">
+      <Filter>Resource\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHAnimator.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHAnimation.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)LogHRigidbodyComponent.cpp">
+      <Filter>Component\Rigidbody</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -155,10 +162,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)LogHAnimation.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)LogHAnimator.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHBoxComponent2D.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
@@ -168,9 +171,20 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHShapeComponent.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)LogHCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LogHTilemapRender.h">
       <Filter>Component\TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHCollisionManager.h">
+      <Filter>Resource\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHAnimator.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHAnimation.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LogHRigidbodyComponent.h">
+      <Filter>Component\Rigidbody</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +235,15 @@
     </Filter>
     <Filter Include="Component\TileMap">
       <UniqueIdentifier>{c2330e60-b42e-4cd2-a949-efde4b3951f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Collision">
+      <UniqueIdentifier>{65c263f6-0242-43c6-b16f-489272dbfbe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Rigidbody">
+      <UniqueIdentifier>{bd17c3ab-ea22-4404-9a6b-efd9f492bf9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animator">
+      <UniqueIdentifier>{dae81bbc-5562-435a-be3b-e75fa228a3c4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

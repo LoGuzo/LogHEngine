@@ -17,7 +17,7 @@ namespace LogH
 		virtual void Render(HDC Hdc) override;
 
 		void SetTexture(Graphics::Texture* _Texture) { MyTexture = _Texture; }
-		void SetSize(Vector2 _TScale) { TScale = _TScale; }
+		void SetScale(Vector2 _TScale) { TScale = _TScale; }
 
 		Vector2 GetIndex() { return Index; }
 		void SetIndex(Vector2 _Index) { Index = _Index; }

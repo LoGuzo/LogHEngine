@@ -27,7 +27,7 @@ namespace LogH
 
 	void PlayScene::Initialize()
 	{
-		Load();
+		//Load();
 
 		GameObject* CameraObj = Object::Instantiate<GameObject>
 			(E_LayerType::None, Vector2(256.f, 256.f));
@@ -84,7 +84,7 @@ namespace LogH
 	void PlayScene::Load()
 	{
 		FILE* pFile = nullptr;
-		//_wfopen_s(&pFile, L"..\\Resources\\SaveMapData\\Test", L"rb");
+		_wfopen_s(&pFile, L"..\\Resources\\SaveMapData\\Test", L"rb");
 
 		while (true)
 		{

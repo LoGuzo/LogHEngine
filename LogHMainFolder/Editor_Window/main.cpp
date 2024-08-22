@@ -8,6 +8,7 @@
 #include "..\\LogHEngine_Window\\LogHLoadScene.h"
 #include "..\\LogHEngine_Window\\LogHLoadResources.h"
 #include "..\\LogHEngine_Source\\LogHResourceManager.h"
+#include "..\\LogHEngine_Source\\LogHSceneManager.h"
 #include "..\\LogHEngine_Source\\LogHTexture.h"
 #include <time.h>
 
@@ -119,25 +120,16 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, Width, Height, nullptr, nullptr, hInstance, nullptr);
 
-   HWND ToolHWnd = CreateWindowW(L"TILEWINDOW", L"TileTool", WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, Width, Height, nullptr, nullptr, hInstance, nullptr);
+
 
    if (!hWnd)
-   {
       return FALSE;
-   }
 
-   if (!ToolHWnd)
-   {
-       return FALSE;
-   }
 
    App.Initialize(hWnd, Width, Height);
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
-
-   ShowWindow(ToolHWnd, nCmdShow);
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
@@ -147,20 +139,31 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    int a = 0;
    srand((UINT)(&a));
 
-   LogH::Graphics::Texture* texture
-       = LogH::ResourceManager::Find<LogH::Graphics::Texture>(L"TileMap");
+   LogH::Scene* activeScene = LogH::SceneManager::GetActiveScene();
+   wstring Name = activeScene->GetName();
 
-   RECT rect = { 0, 0, texture->GetHeight() * 3, texture->GetHeight() * 3 };
-   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+   if (Name == L"ToolScene")
+   {
+       HWND ToolHWnd = CreateWindowW(L"TILEWINDOW", L"TileTool", WS_OVERLAPPEDWINDOW,
+           CW_USEDEFAULT, 0, Width, Height, nullptr, nullptr, hInstance, nullptr);
 
-   UINT MWidth = rect.right - rect.left;
-   UINT MHeight = rect.bottom - rect.top;
+       if (!ToolHWnd)
+           return FALSE;
 
-   SetWindowPos(ToolHWnd, nullptr, Width, 0, MWidth, MHeight, 0);
-   ShowWindow(ToolHWnd, true);
+       LogH::Graphics::Texture* texture
+           = LogH::ResourceManager::Find<LogH::Graphics::Texture>(L"TileMap");
 
-   UpdateWindow(ToolHWnd);
+       RECT rect = { 0, 0, texture->GetHeight() * 3, texture->GetHeight() * 3 };
+       AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
+       UINT MWidth = rect.right - rect.left;
+       UINT MHeight = rect.bottom - rect.top;
+
+       SetWindowPos(ToolHWnd, nullptr, Width, 0, MWidth, MHeight, 0);
+       ShowWindow(ToolHWnd, true);
+
+       UpdateWindow(ToolHWnd);
+   }
    return TRUE;
 }
 

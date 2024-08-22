@@ -8,7 +8,7 @@ namespace LogH
 {
 	Vector2 TilemapRender::FinalTileSize = Vector2::One;
 	Vector2 TilemapRender::OriginTileSize = Vector2::One;
-	Vector2 TilemapRender::SelectedIndex = Vector2::Zero;
+	Vector2 TilemapRender::SelectedIndex = Vector2(-1.f,-1.f);
 
 	TilemapRender::TilemapRender()
 		: Component(Enums::E_ComponentType::Renderer)
@@ -17,6 +17,7 @@ namespace LogH
 		, Index(Vector2::One)
 		, TileSize(Vector2(16.f, 16.f))
 	{
+		SetScale(Vector2(1.5f, 1.5f));
 		FinalTileSize = TileSize * TScale;
 		OriginTileSize = TileSize;
 	}
@@ -41,8 +42,9 @@ namespace LogH
 	{
 		if (!MyTexture)
 			assert(false);
-
+		
 		TransformComponent* MyTransform = GetOwner()->GetComponent<TransformComponent>();
+
 		Vector2 Pos = MyTransform->GetPosition();
 		Vector2 Scale = MyTransform->GetScale();
 		float Rotation = MyTransform->GetRotation();
