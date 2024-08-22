@@ -6,13 +6,19 @@
 
 namespace LogH
 {
+	Vector2 TilemapRender::FinalTileSize = Vector2::One;
+	Vector2 TilemapRender::OriginTileSize = Vector2::One;
+	Vector2 TilemapRender::SelectedIndex = Vector2::Zero;
+
 	TilemapRender::TilemapRender()
 		: Component(Enums::E_ComponentType::Renderer)
 		, MyTexture(nullptr)
 		, TScale(Vector2::One)
-		, Index(Vector2::Zero)
+		, Index(Vector2::One)
 		, TileSize(Vector2(16.f, 16.f))
 	{
+		FinalTileSize = TileSize * TScale;
+		OriginTileSize = TileSize;
 	}
 
 	TilemapRender::~TilemapRender()
@@ -42,12 +48,12 @@ namespace LogH
 		float Rotation = MyTransform->GetRotation();
 
 		if (Renderer::MainCamera)
-			Pos = Renderer::MainCamera->CaluatePosition(Pos);
+			Pos = Renderer::MainCamera->CalculatePosition(Pos);
 
 		if (MyTexture->GetTextureType() == Graphics::Texture::E_TextureType::Bmp)
 		{
 			TransparentBlt(Hdc, Pos.x, Pos.y
-				, TileSize.x * TScale.x * Scale.x, TileSize.x * TScale.y * Scale.y
+				, FinalTileSize.x * Scale.x, FinalTileSize.y * Scale.y
 				, MyTexture->GetHdc(), Index.x * TileSize.x + Index.x, Index.y * TileSize.y + Index.y, 16, 16
 				, RGB(147, 187, 236));
 		}

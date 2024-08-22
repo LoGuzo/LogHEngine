@@ -1,5 +1,4 @@
 #include "LogHPlayScene.h"
-//#include "LogHTitleScene.h"
 #include "LogHAnimator.h"
 #include "LogHCameraComponent.h"
 #include "LogHInput.h"
@@ -11,6 +10,8 @@
 #include "LogHTransformComponent.h"
 #include "LogHTexture.h"
 #include "LogHRenderer.h"
+#include "LogHTile.h"
+#include "LogHTilemapRender.h"
 #include "Mario.h"
 #include "MushRoom.h"
 
@@ -26,6 +27,8 @@ namespace LogH
 
 	void PlayScene::Initialize()
 	{
+		Load();
+
 		GameObject* CameraObj = Object::Instantiate<GameObject>
 			(E_LayerType::None, Vector2(256.f, 256.f));
 
@@ -76,5 +79,39 @@ namespace LogH
 	{
 		TransformComponent* BackTr = BackGroundObj->GetComponent<TransformComponent>();
 		BackTr->SetPosition(Vector2(0, 0));
+	}
+
+	void PlayScene::Load()
+	{
+		FILE* pFile = nullptr;
+		//_wfopen_s(&pFile, L"..\\Resources\\SaveMapData\\Test", L"rb");
+
+		while (true)
+		{
+			int IdxX = 0;
+			int IdxY = 0;
+
+			int PosX = 0;
+			int PosY = 0;
+
+
+			if (fread(&IdxX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&IdxY, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&PosX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&PosY, sizeof(int), 1, pFile) == NULL)
+				break;
+
+			Tile* tile = Object::Instantiate<Tile>(E_LayerType::Tile, Vector2(PosX, PosY));
+			TilemapRender* Tmr = tile->AddComponent<TilemapRender>(L"TileMapRender");
+			Tmr->SetTexture(ResourceManager::Find<Graphics::Texture>(L"TileMap"));
+			Tmr->SetIndex(Vector2(IdxX, IdxY));
+
+			//Tiles.push_back(tile);
+		}
+
+		fclose(pFile);
 	}
 }

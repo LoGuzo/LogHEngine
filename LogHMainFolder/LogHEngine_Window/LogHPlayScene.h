@@ -17,6 +17,7 @@ namespace LogH
 		virtual void OnEnter() override;
 		virtual void OnExit() override;
 
+		void Load();
 	private:
 		class GameObject* BackGroundObj;
 		class PlayerCharacter* MyPlayerCharacter;

@@ -17,6 +17,12 @@ namespace LogH
 		virtual void OnEnter() override;
 		virtual void OnExit() override;
 		
+		void Save();
+		void Load();
+
 	private:
+		vector<class Tile*> Tiles;
     };
 }
+
+LRESULT CALLBACK WndTileMapProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

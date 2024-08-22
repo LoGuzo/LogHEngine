@@ -7,7 +7,8 @@ namespace LogH
     class CameraComponent : public Component
     {
 	public:
-		Vector2 CaluatePosition(Vector2 pos) { return pos - Distance; }
+		Vector2 CalculatePosition(Vector2 pos) { return pos - Distance; }
+		Vector2 CalculateTilePosition(Vector2 pos) { return pos + Distance; }
 
 		CameraComponent();
 		~CameraComponent();

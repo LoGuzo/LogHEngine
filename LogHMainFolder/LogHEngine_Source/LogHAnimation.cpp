@@ -55,9 +55,6 @@ namespace LogH
 		Vector2 Scale = Tc->GetScale();
 		float Rotation = Tc->GetRotation();
 
-		if (Renderer::MainCamera)
-			Pos = Renderer::MainCamera->CaluatePosition(Pos);
-
 		Texture::E_TextureType type = MyTexture->GetTextureType();
 		Sprite sprite = MyAnimation[Index];
 

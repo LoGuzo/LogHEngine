@@ -1,17 +1,18 @@
 #pragma once
-#include "..\\LogHEngine_Source\\LogHGameObject.h"
+#include "LogHInputComponent.h"
 
 namespace LogH
 {
-	class Tile : public GameObject
+	class CameraScriptComponent : public InputComponent
 	{
 	public:
+		CameraScriptComponent();
+		~CameraScriptComponent();
+
 		virtual void Initialize() override;
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render(HDC Hdc) override;
-
-		void SetIndexPosition(int x, int y);
 
 	private:
 

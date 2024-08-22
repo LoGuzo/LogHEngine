@@ -64,6 +64,7 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="LogHTile.h" />
+    <ClInclude Include="LogHCameraScriptComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHPlayScene.cpp">
@@ -100,5 +101,6 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="LogHTile.cpp" />
+    <ClCompile Include="LogHCameraScriptComponent.cpp" />
   </ItemGroup>
 </Project>

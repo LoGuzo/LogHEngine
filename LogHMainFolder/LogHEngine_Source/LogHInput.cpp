@@ -88,6 +88,7 @@ namespace LogH
 			_Key.State = E_KeyState::None;
 		_Key.bPressed = false;
 	}
+
 	void Input::GetMousePositionByWindow()
 	{
 		POINT MousePos = {};
@@ -95,8 +96,17 @@ namespace LogH
 
 		ScreenToClient(App.GetHwnd(), &MousePos);
 
-		MousePosition.x = MousePos.x;
-		MousePosition.y = MousePos.y;
+		UINT Width = App.GetWidth();
+		UINT Height = App.GetHeight();
+
+		MousePosition.x = -1.f;
+		MousePosition.y = -1.f;
+
+		if (MousePos.x >= 0 && MousePos.x <= Width )
+			MousePosition.x = MousePos.x;
+
+		if (MousePos.y >= 0 &&MousePos.y <= Height)
+			MousePosition.y = MousePos.y;
 	}
 
 	void Input::ClearKeys()
