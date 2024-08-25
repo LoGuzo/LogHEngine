@@ -7,9 +7,9 @@ namespace LogH
 {
 	RigidbodyComponent::RigidbodyComponent()
 		:Component(Enums::E_ComponentType::Rigidbody)
-		, IsGround(false)
+		, bIsGround(false)
 		, Mass(1.f)
-		, Friction(40.f)
+		, Friction(55.f)
 		, Force(Vector2::Zero)
 		, Accelation(Vector2::Zero)
 		, Velocity(Vector2::Zero)
@@ -32,7 +32,7 @@ namespace LogH
 
 		Velocity += Accelation * Time::GetDeltaTime();
 
-		if (IsGround)
+		if (bIsGround)
 		{
 			Vector2 gravity = Gravity;
 			gravity.normalize();

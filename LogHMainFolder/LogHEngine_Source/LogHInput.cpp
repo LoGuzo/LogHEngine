@@ -102,11 +102,15 @@ namespace LogH
 		MousePosition.x = -1.f;
 		MousePosition.y = -1.f;
 
-		if (MousePos.x >= 0 && MousePos.x <= Width )
+		if (MousePos.x > 0 && MousePos.x < Width)
 			MousePosition.x = MousePos.x;
+		else
+			MousePosition.x = -1.f;
 
-		if (MousePos.y >= 0 &&MousePos.y <= Height)
+		if (MousePos.y > 0 &&MousePos.y < Height)
 			MousePosition.y = MousePos.y;
+		else
+			MousePosition.y = -1.f;
 	}
 
 	void Input::ClearKeys()

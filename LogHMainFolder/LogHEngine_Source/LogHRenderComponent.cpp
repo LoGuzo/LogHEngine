@@ -39,9 +39,6 @@ namespace LogH
 		Vector2 Scale = MyTransform->GetScale();
 		float Rotation = MyTransform->GetRotation();
 
-		if (Renderer::MainCamera)
-			Pos = Renderer::MainCamera->CalculatePosition(Pos);
-
 		if (MyTexture->GetTextureType() == Graphics::Texture::E_TextureType::Bmp)
 		{
 			TransparentBlt(Hdc, Pos.x, Pos.y

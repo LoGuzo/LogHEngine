@@ -16,7 +16,7 @@ namespace LogH
 
 		BoxComponent2D* Collision = GetComponent<BoxComponent2D>();
 		Collision->SetRoot(Vector2(-15.f, -25.f));
-		Collision->SetSize(Vector2(20.f, 20.f) * scale);
+		Collision->SetSize(Vector2(12.f, 12.f) * scale);
 	}
 
 	MushRoom::~MushRoom()

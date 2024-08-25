@@ -64,7 +64,12 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="LogHTile.h" />
-    <ClInclude Include="LogHCameraScriptComponent.h" />
+    <ClInclude Include="LogHCameraScriptComponent.h">
+      <Filter>InputComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="LogHTileScriptComponent.h">
+      <Filter>InputComponent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LogHPlayScene.cpp">
@@ -101,6 +106,11 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="LogHTile.cpp" />
-    <ClCompile Include="LogHCameraScriptComponent.cpp" />
+    <ClCompile Include="LogHCameraScriptComponent.cpp">
+      <Filter>InputComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="LogHTileScriptComponent.cpp">
+      <Filter>InputComponent</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -154,7 +154,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
            = LogH::ResourceManager::Find<LogH::Graphics::Texture>(L"TileMap");
 
        RECT rect = { 0, 0, texture->GetHeight() * 3, texture->GetHeight() * 3 };
-       AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+       AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, true);
 
        UINT MWidth = rect.right - rect.left;
        UINT MHeight = rect.bottom - rect.top;

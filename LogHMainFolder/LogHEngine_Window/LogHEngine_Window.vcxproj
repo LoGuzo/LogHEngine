@@ -135,6 +135,7 @@
     <ClInclude Include="LogHCameraScriptComponent.h" />
     <ClInclude Include="LogHMushScriptComponent.h" />
     <ClInclude Include="LogHTile.h" />
+    <ClInclude Include="LogHTileScriptComponent.h" />
     <ClInclude Include="LogHToolScene.h" />
     <ClInclude Include="MushRoom.h" />
     <ClInclude Include="LogHBaseCharacter.h" />
@@ -152,6 +153,7 @@
     <ClCompile Include="LogHCameraScriptComponent.cpp" />
     <ClCompile Include="LogHMushScriptComponent.cpp" />
     <ClCompile Include="LogHTile.cpp" />
+    <ClCompile Include="LogHTileScriptComponent.cpp" />
     <ClCompile Include="LogHToolScene.cpp" />
     <ClCompile Include="MushRoom.cpp" />
     <ClCompile Include="LogHBaseCharacter.cpp" />

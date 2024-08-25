@@ -6,6 +6,9 @@ namespace LogH
 	class Tile : public GameObject
 	{
 	public:
+		Tile();
+		~Tile();
+
 		virtual void Initialize() override;
 		virtual void Update() override;
 		virtual void LateUpdate() override;

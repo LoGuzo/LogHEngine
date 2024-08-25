@@ -27,19 +27,21 @@ namespace LogH
 
 	void PlayScene::Initialize()
 	{
-		//Load();
+		Load();
+
+		/*MyPlayerCharacter = Object::Instantiate<Mario>
+			(E_LayerType::Player, Vector2(50.f, 390.f));*/
 
 		GameObject* CameraObj = Object::Instantiate<GameObject>
 			(E_LayerType::None, Vector2(256.f, 256.f));
 
 		CameraComponent* CameraComp = CameraObj->AddComponent<CameraComponent>(L"Camera");
-		//Renderer::MainCamera = CameraComp;
+		Renderer::MainCamera = CameraComp;
 
-		MyPlayerCharacter = Object::Instantiate<Mario>
-			(E_LayerType::Player, Vector2(50.f, 50.f));
+		//CameraComp->SetTarget(MyPlayerCharacter);
 
 		EnemyMush = Object::Instantiate<MushRoom>
-			(E_LayerType::Enemy, Vector2(200.f, 200.f));
+			(E_LayerType::Enemy, Vector2(200.f, 390.f));
 
 		BackGroundObj = Object::Instantiate<GameObject>
 			(E_LayerType::BackGreound, Vector2(0.f, 0.f));
@@ -84,7 +86,7 @@ namespace LogH
 	void PlayScene::Load()
 	{
 		FILE* pFile = nullptr;
-		_wfopen_s(&pFile, L"..\\Resources\\SaveMapData\\Test", L"rb");
+		_wfopen_s(&pFile, L"..\\Resources\\SaveMapData\\Mario1_1", L"rb");
 
 		while (true)
 		{

@@ -44,10 +44,11 @@ namespace LogH
 		if (Input::GetKeyDown(E_KeyCode::LButton))
 		{
 			Vector2 Pos = Input::GetMousePosition();
-			Pos = Renderer::MainCamera->CalculateTilePosition(Pos);
-
+			
 			if (Pos.x >= 0.f && Pos.y >= 0.f)
 			{
+				Pos = Renderer::MainCamera->CalculateTilePosition(Pos);
+
 				int IdxX = Pos.x / TilemapRender::FinalTileSize.x;
 				int IdxY = Pos.y / TilemapRender::FinalTileSize.y;
 
@@ -57,7 +58,7 @@ namespace LogH
 				Tmr->SetIndex(TilemapRender::SelectedIndex);
 				
 				int CurX = IdxX * TilemapRender::FinalTileSize.x;
-				int CurY = IdxY * TilemapRender::FinalTileSize.x;
+				int CurY = IdxY * TilemapRender::FinalTileSize.y;
 
 				tile->SetIndexPosition(CurX, CurY);
 				Tiles.push_back(tile);
@@ -233,8 +234,8 @@ LRESULT CALLBACK WndTileMapProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 		LogH::Math::Vector2 mousePosition;
 		mousePosition.x = mousePos.x;
 		mousePosition.y = mousePos.y;
-		int idxX = mousePosition.x / LogH::TilemapRender::FinalTileSize.x / 2;
-		int idxY = mousePosition.y / LogH::TilemapRender::FinalTileSize.y / 2;
+		int idxX = mousePosition.x / 17.f / 3.f;
+		int idxY = mousePosition.y / 17.f / 3.f;
 		LogH::TilemapRender::SelectedIndex = LogH::Math::Vector2(idxX, idxY);
 	}
 	break;

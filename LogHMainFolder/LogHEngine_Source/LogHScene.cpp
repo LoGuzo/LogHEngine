@@ -18,6 +18,8 @@ namespace LogH
 	void Scene::Initialize()
 	{
 		CollisionManager::CollisionLayerCheck(E_LayerType::Player, E_LayerType::Enemy, true);
+		CollisionManager::CollisionLayerCheck(E_LayerType::Player, E_LayerType::Tile, true);
+		CollisionManager::CollisionLayerCheck(E_LayerType::Enemy, E_LayerType::Tile, true);
 
 		for (Layer* layer : Layers)
 		{

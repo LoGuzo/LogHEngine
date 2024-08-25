@@ -38,7 +38,7 @@ namespace LogH
 		HPEN greenPen = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
 		HPEN oldPen = (HPEN)SelectObject(Hdc, greenPen);
 
-		Rectangle(Hdc, Pos.x + root.x, Pos.y + root.y, Pos.x + root.x + GetSize().x, Pos.y + root.y + GetSize().y);
+		//Rectangle(Hdc, Pos.x + root.x, Pos.y + root.y, Pos.x + root.x + GetSize().x, Pos.y + root.y + GetSize().y);
 
 		SelectObject(Hdc, OldBrush);
 		SelectObject(Hdc, oldPen);

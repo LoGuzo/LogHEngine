@@ -1,4 +1,5 @@
 #include "LogHBaseCharacter.h"
+#include "LogHRigidbodyComponent.h"
 
 namespace LogH
 {
@@ -7,6 +8,7 @@ namespace LogH
 		, FlipTexture(nullptr)
 		, MyAnimator(nullptr)
 	{
+		AddComponent<RigidbodyComponent>(L"Rigidbody");
 	}
 
 	BaseCharacter::~BaseCharacter()

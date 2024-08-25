@@ -30,15 +30,18 @@ namespace LogH
 	{
 		if (Target)
 		{
-			TransformComponent* tc = Target->GetComponent<TransformComponent>();
-			LookPosition = tc->GetPosition();
+			TransformComponent* Tc = Target->GetComponent<TransformComponent>();
+			TransformComponent* CameraTc = GetOwner()->GetComponent<TransformComponent>();
+
+			LookPosition = Vector2(Tc->GetPosition().x, CameraTc->GetPosition().y);
+			CameraTc->SetPosition(LookPosition);
 		}
 		else
 		{
 			TransformComponent* CameraTc = GetOwner()->GetComponent<TransformComponent>();
 			LookPosition = CameraTc->GetPosition();
 		}
-		
+
 		Distance = LookPosition - (Resolution / 2.f);
 	}
 

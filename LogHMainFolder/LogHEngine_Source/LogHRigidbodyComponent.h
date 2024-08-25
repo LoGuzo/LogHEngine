@@ -15,7 +15,9 @@ namespace LogH
 		virtual void Render(HDC Hdc) override;
 
 
-		bool SetIsGround(bool _IsGround) { IsGround = _IsGround; }
+		void SetIsGround(bool _IsGround) { bIsGround = _IsGround; }
+		bool GetIsGround() { return bIsGround; }
+
 		void SetMass(float _Mass) { Mass = _Mass; }
 		void SetForce(Vector2 _Force) { Force = _Force; }
 		void SetGravity(Vector2 _Gravity) { Gravity = _Gravity; }
@@ -24,7 +26,7 @@ namespace LogH
 		void SetVelocity(Vector2 _Velocity) { Velocity = _Velocity; }
 
 	private:
-		bool IsGround;
+		bool bIsGround;
 
 		float Mass;
 		float Friction;

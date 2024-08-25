@@ -9,6 +9,7 @@ namespace LogH
 	public:
 		Vector2 CalculatePosition(Vector2 pos) { return pos - Distance; }
 		Vector2 CalculateTilePosition(Vector2 pos) { return pos + Distance; }
+		Vector2 CalculateXPosition(Vector2 pos) { return Vector2(pos.x + Distance.x, pos.y); }
 
 		CameraComponent();
 		~CameraComponent();

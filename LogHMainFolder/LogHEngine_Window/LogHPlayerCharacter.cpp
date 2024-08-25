@@ -1,13 +1,13 @@
 #include "LogHPlayerCharacter.h"
 #include "LogHResourceManager.h"
-#include "LogHRigidbodyComponent.h"
+
 
 namespace LogH
 {
 	PlayerCharacter::PlayerCharacter()
 		: BaseCharacter(Enums::E_CharacterType::Player)
 	{
-		AddComponent<RigidbodyComponent>(L"Rigidbody");
+
 	}
 
 	PlayerCharacter::~PlayerCharacter()

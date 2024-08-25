@@ -33,7 +33,7 @@ namespace LogH
 			MyAnimator = GetOwner()->GetComponent<Animator>();
 			MyAnimator->PlayAnimation(L"Idle", false);
 		}
-		//FSM();
+		FSM();
 	}
 
 	void MushScriptComponent::LateUpdate()
